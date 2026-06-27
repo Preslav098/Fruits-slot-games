@@ -1,0 +1,38 @@
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bar-bg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#5a0000" />
+      <stop offset="38%" stop-color="#b71c1c" />
+      <stop offset="100%" stop-color="#2a0000" />
+    </linearGradient>
+    <linearGradient id="bar-gold" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffe082" />
+      <stop offset="48%" stop-color="#ffd700" />
+      <stop offset="100%" stop-color="#f9a825" />
+    </linearGradient>
+    <linearGradient id="bar-border" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffe57f" />
+      <stop offset="50%" stop-color="#ffa000" />
+      <stop offset="100%" stop-color="#ff6f00" />
+    </linearGradient>
+    <radialGradient id="bar-rim" cx="75%" cy="80%" r="55%">
+      <stop offset="0%" stop-color="#ffd700" stop-opacity="0.38" />
+      <stop offset="100%" stop-color="#ffd700" stop-opacity="0" />
+    </radialGradient>
+    <filter id="bar-sh" x="-18%" y="-18%" width="136%" height="136%">
+      <feDropShadow dx="0" dy="4" stdDeviation="5" flood-color="#000" flood-opacity="0.62" />
+    </filter>
+    <filter id="bar-glow">
+      <feGaussianBlur stdDeviation="1.8" result="blur" />
+      <feMerge><feMergeNode in="blur" /><feMergeNode in="SourceGraphic" /></feMerge>
+    </filter>
+  </defs>
+  <ellipse cx="50" cy="93" rx="34" ry="5" fill="rgba(0,0,0,0.32)" />
+  <rect x="8" y="18" width="84" height="62" rx="11" ry="11" fill="url(#bar-bg)" stroke="url(#bar-border)" stroke-width="4.5" filter="url(#bar-sh)" />
+  <rect x="8" y="18" width="84" height="62" rx="11" ry="11" fill="url(#bar-rim)" />
+  <rect x="14" y="24" width="72" height="50" rx="7" ry="7" fill="none" stroke="#ffd700" stroke-width="1.5" opacity="0.48" />
+  <text x="50" y="60" text-anchor="middle" dominant-baseline="middle" font-family="'Arial Black', 'Impact', sans-serif" font-weight="900" font-size="33" fill="none" stroke="#8b6914" stroke-width="1.5" filter="url(#bar-sh)">BAR</text>
+  <text x="50" y="60" text-anchor="middle" dominant-baseline="middle" font-family="'Arial Black', 'Impact', sans-serif" font-weight="900" font-size="33" fill="url(#bar-gold)" filter="url(#bar-glow)">BAR</text>
+  <rect x="14" y="22" width="72" height="16" rx="9" ry="9" fill="rgba(255,255,255,0.13)" />
+  <ellipse cx="38" cy="30" rx="15" ry="5" fill="rgba(255,255,255,0.22)" />
+</svg>

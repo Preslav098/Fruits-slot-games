@@ -1,0 +1,60 @@
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="di-body" x1="20%" y1="0%" x2="80%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" />
+      <stop offset="18%" stop-color="#80deea" />
+      <stop offset="52%" stop-color="#0288d1" />
+      <stop offset="100%" stop-color="#01579b" />
+    </linearGradient>
+    <linearGradient id="di-table" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#e1f5fe" />
+      <stop offset="100%" stop-color="#029fce" />
+    </linearGradient>
+    <linearGradient id="di-left" x1="100%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#4fc3f7" />
+      <stop offset="100%" stop-color="#01579b" />
+    </linearGradient>
+    <linearGradient id="di-right" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#b3e5fc" />
+      <stop offset="100%" stop-color="#0277bd" />
+    </linearGradient>
+    <radialGradient id="di-rim" cx="76%" cy="82%" r="54%">
+      <stop offset="0%" stop-color="#ffd700" stop-opacity="0.52" />
+      <stop offset="100%" stop-color="#ffd700" stop-opacity="0" />
+    </radialGradient>
+    <filter id="di-sh" x="-22%" y="-22%" width="144%" height="144%">
+      <feDropShadow dx="0" dy="4" stdDeviation="5.5" flood-color="#000" flood-opacity="0.62" />
+    </filter>
+  </defs>
+  <ellipse cx="50" cy="93" rx="27" ry="5" fill="rgba(0,0,0,0.3)" />
+  <polygon points="50,11 84,37 68,89 32,89 16,37" fill="url(#di-body)" stroke="#01579b" stroke-width="3.2" filter="url(#di-sh)" />
+  <polygon points="50,11 76,30 64,38 36,38 24,30" fill="url(#di-table)" stroke="#0277bd" stroke-width="1.8" />
+  <polygon points="16,37 24,30 36,38 32,52" fill="url(#di-left)" stroke="#0277bd" stroke-width="1.2" />
+  <polygon points="84,37 76,30 64,38 68,52" fill="url(#di-right)" stroke="#0277bd" stroke-width="1.2" />
+  <line x1="16" y1="37" x2="84" y2="37" stroke="#01579b" stroke-width="2.2" />
+  <line x1="36" y1="38" x2="50" y2="89" stroke="#0288d1" stroke-width="1.5" opacity="0.7" />
+  <line x1="64" y1="38" x2="50" y2="89" stroke="#0288d1" stroke-width="1.5" opacity="0.7" />
+  <line x1="32" y1="52" x2="50" y2="89" stroke="#0277bd" stroke-width="1.2" opacity="0.6" />
+  <line x1="68" y1="52" x2="50" y2="89" stroke="#0277bd" stroke-width="1.2" opacity="0.6" />
+  <polygon points="50,11 84,37 68,89 32,89 16,37" fill="url(#di-rim)" />
+  <ellipse cx="40" cy="27" rx="9" ry="5.5" fill="rgba(255,255,255,0.72)" transform="rotate(-26,40,27)" />
+  <ellipse cx="36" cy="22" rx="4" ry="2.5" fill="rgba(255,255,255,0.9)" transform="rotate(-26,36,22)" />
+  <g transform="translate(86,14)">
+    <line x1="-6" y1="0" x2="6" y2="0" stroke="#ffffff" stroke-width="1.5" />
+    <line x1="0" y1="-6" x2="0" y2="6" stroke="#ffffff" stroke-width="1.5" />
+    <line x1="-4.2" y1="-4.2" x2="4.2" y2="4.2" stroke="#ffffff" stroke-width="1" />
+    <line x1="4.2" y1="-4.2" x2="-4.2" y2="4.2" stroke="#ffffff" stroke-width="1" />
+  </g>
+  <g transform="translate(14,20)">
+    <line x1="-5" y1="0" x2="5" y2="0" stroke="#ffffff" stroke-width="1.5" />
+    <line x1="0" y1="-5" x2="0" y2="5" stroke="#ffffff" stroke-width="1.5" />
+    <line x1="-3.5" y1="-3.5" x2="3.5" y2="3.5" stroke="#ffffff" stroke-width="1" />
+    <line x1="3.5" y1="-3.5" x2="-3.5" y2="3.5" stroke="#ffffff" stroke-width="1" />
+  </g>
+  <g transform="translate(88,62)">
+    <line x1="-4.5" y1="0" x2="4.5" y2="0" stroke="#ffffff" stroke-width="1.5" />
+    <line x1="0" y1="-4.5" x2="0" y2="4.5" stroke="#ffffff" stroke-width="1.5" />
+    <line x1="-3" y1="-3" x2="3" y2="3" stroke="#ffffff" stroke-width="1" />
+    <line x1="3" y1="-3" x2="-3" y2="3" stroke="#ffffff" stroke-width="1" />
+  </g>
+</svg>

@@ -1,0 +1,50 @@
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="sv-body" x1="20%" y1="0%" x2="80%" y2="100%">
+      <stop offset="0%" stop-color="#ff8a80" />
+      <stop offset="28%" stop-color="#f44336" />
+      <stop offset="70%" stop-color="#b71c1c" />
+      <stop offset="100%" stop-color="#5c0000" />
+    </linearGradient>
+    <linearGradient id="sv-stroke" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffd740" />
+      <stop offset="50%" stop-color="#ffa000" />
+      <stop offset="100%" stop-color="#ff6f00" />
+    </linearGradient>
+    <radialGradient id="sv-rim" cx="76%" cy="80%" r="55%">
+      <stop offset="0%" stop-color="#ffd700" stop-opacity="0.52" />
+      <stop offset="100%" stop-color="#ffd700" stop-opacity="0" />
+    </radialGradient>
+    <filter id="sv-sh" x="-25%" y="-25%" width="150%" height="150%">
+      <feDropShadow dx="0" dy="4" stdDeviation="5.5" flood-color="#000" flood-opacity="0.62" />
+    </filter>
+    <filter id="sv-glow">
+      <feGaussianBlur stdDeviation="2" result="blur" />
+      <feMerge><feMergeNode in="blur" /><feMergeNode in="SourceGraphic" /></feMerge>
+    </filter>
+  </defs>
+  <ellipse cx="50" cy="93" rx="25" ry="5" fill="rgba(0,0,0,0.3)" />
+  <text x="50" y="82" text-anchor="middle" font-family="'Arial Black', 'Impact', 'Haettenschweiler', sans-serif" font-weight="900" font-size="78" fill="none" stroke="url(#sv-stroke)" stroke-width="9" stroke-linejoin="round" filter="url(#sv-sh)">7</text>
+  <text x="50" y="82" text-anchor="middle" font-family="'Arial Black', 'Impact', 'Haettenschweiler', sans-serif" font-weight="900" font-size="78" fill="url(#sv-body)">7</text>
+  <text x="50" y="82" text-anchor="middle" font-family="'Arial Black', 'Impact', 'Haettenschweiler', sans-serif" font-weight="900" font-size="78" fill="url(#sv-rim)">7</text>
+  <ellipse cx="34" cy="22" rx="9" ry="5.5" fill="rgba(255,255,255,0.55)" transform="rotate(-22,34,22)" />
+  <ellipse cx="29" cy="16" rx="4" ry="2.5" fill="rgba(255,255,255,0.82)" transform="rotate(-22,29,16)" />
+  <g transform="translate(15,16)" filter="url(#sv-glow)">
+    <line x1="-7" y1="0" x2="7" y2="0" stroke="#ffd700" stroke-width="1.8" />
+    <line x1="0" y1="-7" x2="0" y2="7" stroke="#ffd700" stroke-width="1.8" />
+    <line x1="-4.55" y1="-4.55" x2="4.55" y2="4.55" stroke="#ffd700" stroke-width="1.2" />
+    <line x1="4.55" y1="-4.55" x2="-4.55" y2="4.55" stroke="#ffd700" stroke-width="1.2" />
+  </g>
+  <g transform="translate(88,24)" filter="url(#sv-glow)">
+    <line x1="-6" y1="0" x2="6" y2="0" stroke="#ffd700" stroke-width="1.8" />
+    <line x1="0" y1="-6" x2="0" y2="6" stroke="#ffd700" stroke-width="1.8" />
+    <line x1="-3.9" y1="-3.9" x2="3.9" y2="3.9" stroke="#ffd700" stroke-width="1.2" />
+    <line x1="3.9" y1="-3.9" x2="-3.9" y2="3.9" stroke="#ffd700" stroke-width="1.2" />
+  </g>
+  <g transform="translate(18,78)" filter="url(#sv-glow)">
+    <line x1="-5" y1="0" x2="5" y2="0" stroke="#ffd700" stroke-width="1.8" />
+    <line x1="0" y1="-5" x2="0" y2="5" stroke="#ffd700" stroke-width="1.8" />
+    <line x1="-3.25" y1="-3.25" x2="3.25" y2="3.25" stroke="#ffd700" stroke-width="1.2" />
+    <line x1="3.25" y1="-3.25" x2="-3.25" y2="3.25" stroke="#ffd700" stroke-width="1.2" />
+  </g>
+</svg>

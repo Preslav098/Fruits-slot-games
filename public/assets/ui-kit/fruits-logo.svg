@@ -1,0 +1,91 @@
+<svg width="960" height="200" viewBox="0 0 960 200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="logo-gold" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FFF7C9" />
+      <stop offset="22%" stop-color="#FFE880" />
+      <stop offset="55%" stop-color="#C9A020" />
+      <stop offset="100%" stop-color="#7A5200" />
+    </linearGradient>
+    <linearGradient id="logo-gold-dark" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#5B3500" />
+      <stop offset="100%" stop-color="#2A1400" />
+    </linearGradient>
+    <linearGradient id="logo-red" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FF7A8E" />
+      <stop offset="100%" stop-color="#C9163A" />
+    </linearGradient>
+    <linearGradient id="logo-orange" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FFD27A" />
+      <stop offset="100%" stop-color="#E66A00" />
+    </linearGradient>
+    <radialGradient id="logo-glow" cx="50%" cy="50%" r="58%">
+      <stop offset="0%" stop-color="#FFE880" stop-opacity="0.34" />
+      <stop offset="100%" stop-color="#FFE880" stop-opacity="0" />
+    </radialGradient>
+    <filter id="logo-shadow" x="-20%" y="-30%" width="140%" height="170%">
+      <feDropShadow dx="0" dy="6" stdDeviation="6" flood-color="#000000" flood-opacity="0.5" />
+    </filter>
+    <filter id="logo-letter-glow" x="-18%" y="-20%" width="136%" height="140%">
+      <feGaussianBlur stdDeviation="5" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+
+  <rect x="14" y="18" width="932" height="164" rx="30" fill="#1A0538" stroke="url(#logo-gold)" stroke-width="4" filter="url(#logo-shadow)" />
+  <rect x="24" y="28" width="912" height="144" rx="24" fill="#2C0A58" stroke="#FFE880" stroke-opacity="0.18" stroke-width="2" />
+  <rect x="36" y="40" width="888" height="120" rx="20" fill="url(#logo-glow)" opacity="0.55" />
+  <rect x="44" y="48" width="872" height="104" rx="16" fill="none" stroke="#C9A020" stroke-opacity="0.28" stroke-width="2" />
+
+  <g transform="translate(480 98)">
+    <text x="0" y="0" text-anchor="middle" dominant-baseline="central"
+      font-family="'Fredoka One', 'Arial Black', sans-serif"
+      font-size="92" font-weight="900"
+      fill="url(#logo-gold-dark)" opacity="0.65">FRUITS</text>
+    <text x="-2" y="-2" text-anchor="middle" dominant-baseline="central"
+      font-family="'Fredoka One', 'Arial Black', sans-serif"
+      font-size="92" font-weight="900"
+      fill="url(#logo-gold)" stroke="#4A2800" stroke-width="5" paint-order="stroke"
+      filter="url(#logo-shadow)">FRUITS</text>
+    <text x="-2" y="-2" text-anchor="middle" dominant-baseline="central"
+      font-family="'Fredoka One', 'Arial Black', sans-serif"
+      font-size="92" font-weight="900"
+      fill="none" stroke="#FFFFFF" stroke-width="1.2" opacity="0.26">FRUITS</text>
+  </g>
+
+  <g transform="translate(110 92) scale(0.92)">
+    <line x1="0" y1="14" x2="-11" y2="-18" stroke="#2D8A4E" stroke-width="3" stroke-linecap="round" />
+    <line x1="0" y1="14" x2="12" y2="-13" stroke="#2D8A4E" stroke-width="3" stroke-linecap="round" />
+    <ellipse cx="12" cy="-7" rx="12" ry="6" fill="#27AE60" transform="rotate(-35 12 -7)" />
+    <circle cx="-16" cy="-36" r="16" fill="url(#logo-red)" stroke="#7D1A12" stroke-width="1.5" />
+    <circle cx="16" cy="-29" r="16" fill="url(#logo-red)" stroke="#7D1A12" stroke-width="1.5" />
+    <ellipse cx="-20" cy="-40" rx="4" ry="3" fill="#FFFFFF" opacity="0.35" />
+    <ellipse cx="12" cy="-34" rx="4" ry="3" fill="#FFFFFF" opacity="0.35" />
+  </g>
+
+  <g transform="translate(822 94) scale(0.9)">
+    <circle r="24" fill="url(#logo-orange)" stroke="#BF360C" stroke-width="2" />
+    <ellipse cx="0" cy="-28" rx="10" ry="6" fill="#27AE60" transform="rotate(-20 0 -28)" />
+    <line x1="0" y1="-24" x2="0" y2="-18" stroke="#2D8A4E" stroke-width="2.5" stroke-linecap="round" />
+    <ellipse cx="-8" cy="-10" rx="8" ry="6" fill="#FFFFFF" opacity="0.2" />
+  </g>
+
+  <g transform="translate(140 154) scale(0.72)">
+    <path d="M 0,0 A 30,30 0 0 0 60,0 Z" fill="#27AE60" stroke="#1A6E35" stroke-width="1.5" />
+    <path d="M 4,0 A 26,26 0 0 0 56,0 Z" fill="#F8F9FA" />
+    <path d="M 8,0 A 22,22 0 0 0 52,0 Z" fill="url(#logo-red)" />
+    <ellipse cx="23" cy="-9" rx="2.5" ry="4" fill="#1A1A2E" transform="rotate(-12 23 -9)" />
+    <ellipse cx="30" cy="-14" rx="2.5" ry="4" fill="#1A1A2E" />
+    <ellipse cx="38" cy="-9" rx="2.5" ry="4" fill="#1A1A2E" transform="rotate(12 38 -9)" />
+  </g>
+
+  <g transform="translate(808 154) scale(0.68)">
+    <path d="M0 -10 C10 -24 26 -24 36 -10 C26 -2 10 -2 0 -10 Z" fill="url(#logo-gold)" stroke="#C49A00" stroke-width="1.5" />
+    <circle cx="12" cy="4" r="12" fill="url(#logo-gold)" stroke="#C49A00" stroke-width="1.5" />
+    <circle cx="34" cy="4" r="12" fill="url(#logo-gold)" stroke="#C49A00" stroke-width="1.5" />
+    <circle cx="12" cy="4" r="3" fill="#FFFFFF" opacity="0.28" />
+    <circle cx="34" cy="4" r="3" fill="#FFFFFF" opacity="0.28" />
+  </g>
+</svg>

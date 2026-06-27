@@ -1,0 +1,136 @@
+<svg width="1920" height="1080" viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg-sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#2d0f4f" />
+      <stop offset="45%" stop-color="#180828" />
+      <stop offset="100%" stop-color="#06000f" />
+    </linearGradient>
+    <radialGradient id="bg-glow" cx="50%" cy="20%" r="70%">
+      <stop offset="0%" stop-color="#ffcc66" stop-opacity="0.35" />
+      <stop offset="35%" stop-color="#ff6bd6" stop-opacity="0.14" />
+      <stop offset="68%" stop-color="#5c5cff" stop-opacity="0.08" />
+      <stop offset="100%" stop-color="#000000" stop-opacity="0" />
+    </radialGradient>
+    <linearGradient id="bg-road" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#2a143d" />
+      <stop offset="55%" stop-color="#12061d" />
+      <stop offset="100%" stop-color="#050008" />
+    </linearGradient>
+    <linearGradient id="bg-neon" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#7b00ff" stop-opacity="0" />
+      <stop offset="50%" stop-color="#ffdf63" stop-opacity="0.95" />
+      <stop offset="100%" stop-color="#7b00ff" stop-opacity="0" />
+    </linearGradient>
+    <filter id="bg-blur" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="18" />
+    </filter>
+    <filter id="bg-soft" x="-10%" y="-10%" width="120%" height="120%">
+      <feGaussianBlur stdDeviation="4" />
+    </filter>
+  </defs>
+
+  <rect width="1920" height="1080" fill="url(#bg-sky)" />
+  <rect width="1920" height="1080" fill="url(#bg-glow)" />
+
+  <g opacity="0.45" filter="url(#bg-soft)">
+    <circle cx="270" cy="150" r="34" fill="#ffdf63" />
+    <circle cx="1640" cy="180" r="40" fill="#ff6bd6" />
+    <circle cx="1500" cy="240" r="16" fill="#7b00ff" />
+    <circle cx="420" cy="245" r="18" fill="#4bd8ff" />
+    <circle cx="860" cy="120" r="16" fill="#ffffff" />
+    <circle cx="910" cy="116" r="6" fill="#ffffff" />
+    <circle cx="880" cy="132" r="5" fill="#ffffff" />
+  </g>
+
+  <g opacity="0.28">
+    <path d="M0 0H1920V1080H0Z" fill="none" stroke="#ffffff" stroke-dasharray="2 28" stroke-opacity="0.12" />
+  </g>
+
+  <g transform="translate(0,420)">
+    <path d="M0 255 C220 210, 380 210, 520 250 C650 288, 760 286, 930 240 C1110 192, 1290 178, 1440 236 C1570 286, 1735 294, 1920 248 V660 H0Z" fill="#1a0b2c" opacity="0.55" />
+
+    <g transform="translate(0,18)">
+      <path d="M175 92 L260 92 L292 40 L320 92 L394 92 L394 280 L175 280 Z" fill="#24103f" stroke="#7d5cff" stroke-opacity="0.2" />
+      <rect x="194" y="118" width="30" height="44" rx="4" fill="#ffdf63" opacity="0.65" />
+      <rect x="236" y="118" width="30" height="44" rx="4" fill="#ff6bd6" opacity="0.55" />
+      <rect x="278" y="118" width="30" height="44" rx="4" fill="#4bd8ff" opacity="0.55" />
+      <rect x="320" y="118" width="28" height="44" rx="4" fill="#ffdf63" opacity="0.55" />
+    </g>
+
+    <g transform="translate(430,0)">
+      <rect x="0" y="90" width="170" height="210" rx="14" fill="#281248" />
+      <rect x="18" y="116" width="134" height="150" rx="10" fill="#ffdf63" opacity="0.16" />
+      <text x="85" y="196" text-anchor="middle" font-family="Arial, sans-serif" font-size="52" font-weight="700" fill="#ffdf63" opacity="0.86">VEGAS</text>
+      <path d="M-10 286 H180" stroke="url(#bg-neon)" stroke-width="4" filter="url(#bg-blur)" />
+    </g>
+
+    <g transform="translate(650,42)">
+      <rect x="0" y="60" width="150" height="230" rx="12" fill="#1f0d38" />
+      <rect x="15" y="78" width="120" height="18" rx="9" fill="#ff6bd6" opacity="0.8" />
+      <rect x="22" y="108" width="106" height="148" rx="8" fill="#4bd8ff" opacity="0.18" />
+      <circle cx="75" cy="184" r="26" fill="#ffdf63" opacity="0.12" />
+      <circle cx="75" cy="184" r="56" fill="none" stroke="#ffdf63" stroke-opacity="0.4" stroke-width="4" />
+      <circle cx="75" cy="184" r="84" fill="none" stroke="#ff6bd6" stroke-opacity="0.22" stroke-width="2" />
+    </g>
+
+    <g transform="translate(960,18)">
+      <path d="M0 290 L70 70 L128 178 L188 48 L260 290 Z" fill="#22103d" />
+      <rect x="34" y="118" width="26" height="172" rx="12" fill="#ffdf63" opacity="0.45" />
+      <rect x="80" y="90" width="30" height="200" rx="14" fill="#ff6bd6" opacity="0.35" />
+      <rect x="138" y="70" width="34" height="220" rx="16" fill="#4bd8ff" opacity="0.25" />
+      <path d="M-10 290 H270" stroke="#ffdf63" stroke-opacity="0.18" stroke-width="2" />
+    </g>
+
+    <g transform="translate(1240,26)">
+      <rect x="0" y="110" width="190" height="200" rx="16" fill="#23113c" />
+      <rect x="22" y="136" width="146" height="28" rx="14" fill="#ffdf63" opacity="0.6" />
+      <rect x="22" y="182" width="146" height="96" rx="10" fill="#ff6bd6" opacity="0.13" />
+      <text x="95" y="241" text-anchor="middle" font-family="Arial, sans-serif" font-size="42" font-weight="700" fill="#ffffff" opacity="0.7">HOTEL</text>
+    </g>
+
+    <g transform="translate(1460,0)">
+      <rect x="0" y="88" width="220" height="240" rx="18" fill="#26113f" />
+      <path d="M20 120 H200" stroke="#ffdf63" stroke-width="6" opacity="0.75" />
+      <path d="M20 154 H200" stroke="#ff6bd6" stroke-width="4" opacity="0.65" />
+      <path d="M20 188 H200" stroke="#4bd8ff" stroke-width="4" opacity="0.55" />
+      <path d="M20 222 H200" stroke="#ffdf63" stroke-width="4" opacity="0.55" />
+    </g>
+
+    <path d="M0 360 C180 320, 320 314, 520 348 C760 390, 980 382, 1230 336 C1460 294, 1680 300, 1920 352 V660 H0Z" fill="#0d0717" opacity="0.9" />
+    <path d="M0 388 C240 354, 420 362, 610 392 C820 426, 1060 420, 1310 382 C1540 348, 1710 350, 1920 392" fill="none" stroke="#ffdf63" stroke-opacity="0.22" stroke-width="3" filter="url(#bg-blur)" />
+  </g>
+
+  <g transform="translate(0,760)">
+    <path d="M0 0 H1920 V320 H0 Z" fill="url(#bg-road)" />
+    <path d="M0 32 C260 0, 440 0, 640 26 C860 54, 1060 56, 1260 30 C1490 0, 1680 0, 1920 26 V320 H0Z" fill="#12061d" opacity="0.85" />
+    <path d="M0 74 H1920" stroke="#ffdf63" stroke-opacity="0.14" stroke-width="2" />
+    <path d="M0 102 H1920" stroke="#7b00ff" stroke-opacity="0.12" stroke-width="2" />
+    <path d="M0 128 H1920" stroke="#ff6bd6" stroke-opacity="0.09" stroke-width="1" />
+
+    <g opacity="0.92">
+      <path d="M900 30 L930 30 L946 120 L884 120 Z" fill="#ffdf63" opacity="0.25" />
+      <path d="M975 30 L1005 30 L1021 120 L959 120 Z" fill="#ff6bd6" opacity="0.2" />
+      <path d="M1050 30 L1080 30 L1096 120 L1034 120 Z" fill="#4bd8ff" opacity="0.18" />
+      <rect x="855" y="120" width="320" height="12" rx="6" fill="#ffdf63" opacity="0.3" />
+    </g>
+
+    <g opacity="0.85">
+      <path d="M1180 22 C1216 48, 1228 92, 1198 124 C1168 156, 1122 160, 1090 134 C1048 100, 1040 52, 1078 20 C1116 -12, 1150 -10, 1180 22 Z" fill="none" stroke="#ffdf63" stroke-opacity="0.35" stroke-width="6" />
+      <path d="M1180 40 C1200 56, 1206 78, 1190 96 C1172 114, 1142 116, 1124 100 C1100 80, 1096 52, 1116 34 C1138 16, 1160 16, 1180 40 Z" fill="none" stroke="#ff6bd6" stroke-opacity="0.28" stroke-width="4" />
+    </g>
+
+    <path d="M0 220 C320 164, 680 154, 960 184 C1260 216, 1560 214, 1920 168 V320 H0Z" fill="#050008" opacity="0.96" />
+    <rect x="0" y="244" width="1920" height="76" fill="#040006" opacity="0.95" />
+    <path d="M170 244 L220 244 L264 320 H126 L170 244 Z" fill="#12061d" opacity="0.95" />
+    <path d="M340 244 L394 244 L438 320 H286 L340 244 Z" fill="#12061d" opacity="0.95" />
+    <path d="M520 244 L574 244 L618 320 H466 L520 244 Z" fill="#12061d" opacity="0.95" />
+    <path d="M710 244 L768 244 L812 320 H658 L710 244 Z" fill="#12061d" opacity="0.95" />
+    <path d="M905 244 L962 244 L1006 320 H852 L905 244 Z" fill="#12061d" opacity="0.95" />
+    <path d="M1108 244 L1166 244 L1210 320 H1056 L1108 244 Z" fill="#12061d" opacity="0.95" />
+    <path d="M1320 244 L1376 244 L1420 320 H1264 L1320 244 Z" fill="#12061d" opacity="0.95" />
+    <path d="M1530 244 L1586 244 L1630 320 H1476 L1530 244 Z" fill="#12061d" opacity="0.95" />
+    <path d="M1710 244 L1768 244 L1812 320 H1658 L1710 244 Z" fill="#12061d" opacity="0.95" />
+
+    <rect x="0" y="300" width="1920" height="20" fill="#ffdf63" opacity="0.07" />
+  </g>
+</svg>

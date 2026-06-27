@@ -1,0 +1,124 @@
+<svg viewBox="0 0 900 380" width="900" height="380" xmlns="http://www.w3.org/2000/svg" overflow="visible">
+  <defs>
+    <linearGradient id="goldTop" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#fffde0"/>
+      <stop offset="12%" stop-color="#ffe566"/>
+      <stop offset="30%" stop-color="#f5c200"/>
+      <stop offset="50%" stop-color="#b87800"/>
+      <stop offset="68%" stop-color="#f5c200"/>
+      <stop offset="85%" stop-color="#e0a800"/>
+      <stop offset="100%" stop-color="#7a4800"/>
+    </linearGradient>
+
+    <linearGradient id="goldBevel" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#fff9c4"/>
+      <stop offset="20%" stop-color="#ffe066"/>
+      <stop offset="45%" stop-color="#c47d00"/>
+      <stop offset="60%" stop-color="#f5a623"/>
+      <stop offset="80%" stop-color="#a06200"/>
+      <stop offset="100%" stop-color="#5a3000"/>
+    </linearGradient>
+
+    <linearGradient id="gloss" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.58"/>
+      <stop offset="45%" stop-color="#ffffff" stop-opacity="0.12"/>
+      <stop offset="46%" stop-color="#ffffff" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+
+    <linearGradient id="emerald" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#a8ffb8"/>
+      <stop offset="35%" stop-color="#00c853"/>
+      <stop offset="70%" stop-color="#007a2e"/>
+      <stop offset="100%" stop-color="#003d16"/>
+    </linearGradient>
+
+    <radialGradient id="starGold" cx="40%" cy="30%">
+      <stop offset="0%" stop-color="#fffde0"/>
+      <stop offset="55%" stop-color="#ffe066"/>
+      <stop offset="100%" stop-color="#c47d00"/>
+    </radialGradient>
+
+    <filter id="purpleGlow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="18" result="blur1"/>
+      <feFlood flood-color="#9b30ff" flood-opacity="0.85" result="color1"/>
+      <feComposite in="color1" in2="blur1" operator="in" result="glow1"/>
+      <feGaussianBlur in="SourceAlpha" stdDeviation="28" result="blur2"/>
+      <feFlood flood-color="#5500cc" flood-opacity="0.55" result="color2"/>
+      <feComposite in="color2" in2="blur2" operator="in" result="glow2"/>
+      <feMerge>
+        <feMergeNode in="glow2"/>
+        <feMergeNode in="glow1"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <filter id="depth" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="5" dy="8" stdDeviation="6" flood-color="#3a1800" flood-opacity="0.8"/>
+      <feDropShadow dx="2" dy="3" stdDeviation="2" flood-color="#000000" flood-opacity="0.5"/>
+    </filter>
+
+    <filter id="sparkleGlow" x="-80%" y="-80%" width="260%" height="260%">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <clipPath id="glossClip">
+      <rect x="60" y="105" width="780" height="85"/>
+    </clipPath>
+  </defs>
+
+  <text x="450" y="230" text-anchor="middle" dominant-baseline="central"
+        font-family="Arial Black, Impact, sans-serif" font-size="210" font-weight="900"
+        fill="#9b30ff" letter-spacing="8" filter="url(#purpleGlow)">BIG WIN</text>
+
+  <text x="455" y="238" text-anchor="middle" dominant-baseline="central"
+        font-family="Arial Black, Impact, sans-serif" font-size="210" font-weight="900"
+        fill="#3a1800" letter-spacing="8" opacity="0.75">BIG WIN</text>
+
+  <text x="450" y="230" text-anchor="middle" dominant-baseline="central"
+        font-family="Arial Black, Impact, sans-serif" font-size="210" font-weight="900"
+        fill="url(#goldBevel)" letter-spacing="8" filter="url(#depth)">BIG WIN</text>
+
+  <g clip-path="url(#glossClip)">
+    <text x="450" y="230" text-anchor="middle" dominant-baseline="central"
+          font-family="Arial Black, Impact, sans-serif" font-size="210" font-weight="900"
+          fill="url(#gloss)" letter-spacing="8">BIG WIN</text>
+  </g>
+
+  <text x="450" y="230" text-anchor="middle" dominant-baseline="central"
+        font-family="Arial Black, Impact, sans-serif" font-size="210" font-weight="900"
+        fill="none" stroke="#fffde0" stroke-width="1.5" letter-spacing="8" opacity="0.65">BIG WIN</text>
+
+  <text x="450" y="230" text-anchor="middle" dominant-baseline="central"
+        font-family="Arial Black, Impact, sans-serif" font-size="210" font-weight="900"
+        fill="none" stroke="url(#goldTop)" stroke-width="4" letter-spacing="8">BIG WIN</text>
+
+  <g filter="url(#sparkleGlow)">
+    <polygon points="128,48 137,71 160,70 142,85 150,108 128,95 106,108 114,85 96,70 119,71" fill="url(#starGold)"/>
+    <polygon points="772,48 781,71 804,70 786,85 794,108 772,95 750,108 758,85 740,70 763,71" fill="url(#starGold)"/>
+    <polygon points="450,8 462,38 494,38 468,56 478,88 450,68 422,88 432,56 406,38 438,38" fill="url(#starGold)"/>
+    <polygon points="450,330 460,356 488,356 466,372 474,398 450,382 426,398 434,372 412,356 440,356" fill="url(#starGold)"/>
+  </g>
+
+  <g filter="url(#sparkleGlow)" opacity="0.9">
+    <polygon points="62,172 81,198 62,224 43,198" fill="#60cfff" stroke="url(#goldTop)" stroke-width="2"/>
+    <polygon points="838,172 857,198 838,224 819,198" fill="#60cfff" stroke="url(#goldTop)" stroke-width="2"/>
+    <polygon points="200,31 214,48 200,65 186,48" fill="#b3eaff" stroke="url(#goldTop)" stroke-width="1.5"/>
+    <polygon points="700,31 714,48 700,65 686,48" fill="#b3eaff" stroke="url(#goldTop)" stroke-width="1.5"/>
+  </g>
+
+  <g filter="url(#sparkleGlow)">
+    <circle cx="158" cy="130" r="5" fill="#fffde0"/>
+    <circle cx="742" cy="130" r="5" fill="#fffde0"/>
+    <circle cx="96" cy="235" r="4" fill="#00ff88"/>
+    <circle cx="804" cy="235" r="4" fill="#00ff88"/>
+    <circle cx="310" cy="42" r="4" fill="#ffe066"/>
+    <circle cx="590" cy="42" r="4" fill="#ffe066"/>
+    <circle cx="330" cy="345" r="4" fill="#00ff88"/>
+    <circle cx="570" cy="345" r="4" fill="#00ff88"/>
+  </g>
+</svg>

@@ -1,0 +1,30 @@
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="le-g" cx="34%" cy="30%" r="66%">
+      <stop offset="0%" stop-color="#fffde7" />
+      <stop offset="22%" stop-color="#ffee58" />
+      <stop offset="65%" stop-color="#f9a825" />
+      <stop offset="100%" stop-color="#e65100" />
+    </radialGradient>
+    <radialGradient id="le-rim" cx="75%" cy="78%" r="52%">
+      <stop offset="0%" stop-color="#ffd700" stop-opacity="0.48" />
+      <stop offset="100%" stop-color="#ffd700" stop-opacity="0" />
+    </radialGradient>
+    <filter id="le-sh" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="4" stdDeviation="5" flood-color="#000" flood-opacity="0.55" />
+    </filter>
+    <radialGradient id="le-leaf" cx="38%" cy="32%" r="64%">
+      <stop offset="0%" stop-color="#c5e1a5" />
+      <stop offset="100%" stop-color="#1b5e20" />
+    </radialGradient>
+  </defs>
+  <ellipse cx="50" cy="93" rx="28" ry="5" fill="rgba(0,0,0,0.3)" />
+  <path d="M18 50 C18 34, 28 17, 50 17 C72 17, 82 34, 82 50 C82 66, 72 83, 50 83 C28 83, 18 66, 18 50 Z" fill="url(#le-g)" stroke="#e65100" stroke-width="3" filter="url(#le-sh)" />
+  <path d="M82 50 C85 45, 90 43, 92 47 C94 51, 90 57, 82 50 Z" fill="#f9a825" stroke="#e65100" stroke-width="2" />
+  <path d="M18 50 C15 45, 10 43, 8 47 C6 51, 10 57, 18 50 Z" fill="#f9a825" stroke="#e65100" stroke-width="2" />
+  <path d="M18 50 C18 34, 28 17, 50 17 C72 17, 82 34, 82 50 C82 66, 72 83, 50 83 C28 83, 18 66, 18 50 Z" fill="url(#le-rim)" />
+  <path d="M8 47 C5 43, 5 37, 9 39" stroke="#6d4c41" stroke-width="2.5" stroke-linecap="round" fill="none" />
+  <path d="M7 40 C2 32, 14 24, 16 35 C17 41, 10 43, 7 40 Z" fill="url(#le-leaf)" stroke="#1a3a0a" stroke-width="1.6" />
+  <ellipse cx="33" cy="34" rx="14" ry="9" fill="rgba(255,255,255,0.5)" transform="rotate(-22,33,34)" />
+  <ellipse cx="27" cy="27" rx="6" ry="4" fill="rgba(255,255,255,0.78)" transform="rotate(-22,27,27)" />
+</svg>

@@ -1,0 +1,69 @@
+<svg width="240" height="720" viewBox="0 0 240 720" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="rf-gold" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FFF4B5" />
+      <stop offset="14%" stop-color="#EDD040" />
+      <stop offset="34%" stop-color="#C9A020" />
+      <stop offset="58%" stop-color="#6B4A00" />
+      <stop offset="82%" stop-color="#C9A020" />
+      <stop offset="100%" stop-color="#FFF4B5" />
+    </linearGradient>
+    <linearGradient id="rf-sheen" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.48" />
+      <stop offset="55%" stop-color="#FFFFFF" stop-opacity="0.10" />
+      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0" />
+    </linearGradient>
+    <radialGradient id="rf-purple" cx="50%" cy="45%" r="72%">
+      <stop offset="0%" stop-color="#32009E" />
+      <stop offset="48%" stop-color="#0E002E" />
+      <stop offset="100%" stop-color="#0E0028" />
+    </radialGradient>
+    <linearGradient id="rf-base" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1D0040" />
+      <stop offset="55%" stop-color="#120026" />
+      <stop offset="100%" stop-color="#080010" />
+    </linearGradient>
+    <linearGradient id="rf-base-inner" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#3A0060" />
+      <stop offset="100%" stop-color="#160022" />
+    </linearGradient>
+    <linearGradient id="rf-footer-line" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="rgba(255,244,181,0)" />
+      <stop offset="50%" stop-color="rgba(255,244,181,0.54)" />
+      <stop offset="100%" stop-color="rgba(255,244,181,0)" />
+    </linearGradient>
+    <filter id="rf-glow" x="-20%" y="-8%" width="140%" height="116%">
+      <feGaussianBlur stdDeviation="10" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+  <rect x="0" y="0" width="240" height="720" rx="22" fill="#C9A020" filter="url(#rf-glow)" opacity="0.55" />
+  <rect x="0" y="0" width="240" height="720" rx="22" fill="url(#rf-gold)" />
+  <rect x="6" y="6" width="228" height="708" rx="18" fill="none" stroke="rgba(0,0,0,0.8)" stroke-width="4" />
+  <rect x="18" y="18" width="204" height="684" rx="10" fill="url(#rf-purple)" />
+  <rect x="18" y="18" width="204" height="684" rx="10" fill="url(#rf-sheen)" />
+  <rect x="22" y="22" width="196" height="676" rx="8" fill="none" stroke="rgba(160,80,255,0.52)" stroke-width="4" />
+  <rect x="30" y="44" width="180" height="200" rx="7" fill="rgba(12,0,28,0.72)" />
+  <rect x="30" y="258" width="180" height="200" rx="7" fill="rgba(12,0,28,0.72)" />
+  <rect x="30" y="472" width="180" height="182" rx="7" fill="rgba(12,0,28,0.72)" />
+  <path d="M30 654 H210 V694 C210 698 207 701 203 701 H37 C33 701 30 698 30 694 Z" fill="url(#rf-base)" />
+  <path d="M34 658 H206 V688 C206 691 203 694 200 694 H40 C37 694 34 691 34 688 Z" fill="url(#rf-base-inner)" />
+  <rect x="22" y="244" width="196" height="14" fill="#C9A020" />
+  <rect x="22" y="458" width="196" height="14" fill="#C9A020" />
+  <rect x="22" y="660" width="196" height="9" fill="#C9A020" opacity="0.72" />
+  <line x1="22" y1="244.8" x2="218" y2="244.8" stroke="rgba(255,253,190,0.88)" stroke-width="1" />
+  <line x1="22" y1="257.2" x2="218" y2="257.2" stroke="rgba(0,0,0,0.6)" stroke-width="1" />
+  <line x1="22" y1="458.8" x2="218" y2="458.8" stroke="rgba(255,253,190,0.88)" stroke-width="1" />
+  <line x1="22" y1="471.2" x2="218" y2="471.2" stroke="rgba(0,0,0,0.6)" stroke-width="1" />
+  <line x1="38" y1="665" x2="202" y2="665" stroke="url(#rf-footer-line)" stroke-width="1" />
+  <line x1="38" y1="693" x2="202" y2="693" stroke="rgba(0,0,0,0.45)" stroke-width="1" />
+  <rect x="92" y="668" width="56" height="20" rx="7" fill="rgba(255,244,181,0.06)" stroke="rgba(255,240,170,0.22)" stroke-width="1" />
+  <circle cx="120" cy="678" r="2.5" fill="rgba(255,240,170,0.58)" />
+  <rect x="46" y="694" width="22" height="4" rx="2" fill="rgba(201,160,32,0.62)" />
+  <rect x="172" y="694" width="22" height="4" rx="2" fill="rgba(201,160,32,0.62)" />
+  <rect x="114" y="244" width="12" height="12" rx="1.5" transform="rotate(45 120 250)" fill="#B89018" stroke="#7A5808" stroke-width="1" />
+  <rect x="114" y="458" width="12" height="12" rx="1.5" transform="rotate(45 120 464)" fill="#B89018" stroke="#7A5808" stroke-width="1" />
+</svg>

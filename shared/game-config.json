@@ -1,0 +1,59 @@
+{
+  "visibleRows": 3,
+  "startCredits": 1000,
+  "minBet": 10,
+  "maxBet": 100,
+  "betStep": 10,
+  "paylines": [
+    [
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    [
+      2,
+      2,
+      2,
+      2,
+      2
+    ],
+    [
+      0,
+      1,
+      2,
+      1,
+      0
+    ],
+    [
+      2,
+      1,
+      0,
+      1,
+      2
+    ]
+  ],
+  "paytable": {
+    "apple": 2,
+    "banana": 3,
+    "blueBerry": 5,
+    "grape": 8,
+    "redBerry": 10,
+    "cherry": 12,
+    "watermelon": 12,
+    "lemon": 14,
+    "orange": 14,
+    "bell": 16,
+    "diamond": 20,
+    "bar": 25,
+    "seven": 50
+  }
+}

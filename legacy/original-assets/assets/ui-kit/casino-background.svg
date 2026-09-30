@@ -1,0 +1,122 @@
+<svg width="1920" height="1080" viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="cb-sky" cx="50%" cy="14%" r="82%">
+      <stop offset="0%" stop-color="#32009E" />
+      <stop offset="42%" stop-color="#0E0028" />
+      <stop offset="100%" stop-color="#06000F" />
+    </radialGradient>
+    <radialGradient id="cb-glow" cx="50%" cy="12%" r="62%">
+      <stop offset="0%" stop-color="#FFF4B5" stop-opacity="0.16" />
+      <stop offset="22%" stop-color="#EDD040" stop-opacity="0.08" />
+      <stop offset="48%" stop-color="#B44DFF" stop-opacity="0.06" />
+      <stop offset="100%" stop-color="#000000" stop-opacity="0" />
+    </radialGradient>
+    <linearGradient id="cb-floor" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#14001f" />
+      <stop offset="55%" stop-color="#090012" />
+      <stop offset="100%" stop-color="#040008" />
+    </linearGradient>
+    <linearGradient id="cb-gold" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="transparent" />
+      <stop offset="18%" stop-color="#C9A020" stop-opacity="0.18" />
+      <stop offset="50%" stop-color="#FFE880" stop-opacity="0.65" />
+      <stop offset="82%" stop-color="#C9A020" stop-opacity="0.18" />
+      <stop offset="100%" stop-color="transparent" />
+    </linearGradient>
+    <linearGradient id="cb-neon" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#FF1744" stop-opacity="0" />
+      <stop offset="50%" stop-color="#FFD700" stop-opacity="0.92" />
+      <stop offset="100%" stop-color="#00E5FF" stop-opacity="0" />
+    </linearGradient>
+    <linearGradient id="cb-ornament" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#FFF4B5" />
+      <stop offset="50%" stop-color="#C9A020" />
+      <stop offset="100%" stop-color="#6B4A00" />
+    </linearGradient>
+    <filter id="cb-soft" x="-15%" y="-15%" width="130%" height="130%">
+      <feGaussianBlur stdDeviation="10" />
+    </filter>
+    <filter id="cb-glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="18" />
+    </filter>
+  </defs>
+
+  <rect width="1920" height="1080" fill="url(#cb-sky)" />
+  <rect width="1920" height="1080" fill="url(#cb-glow)" opacity="0.95" />
+
+  <g opacity="0.5" filter="url(#cb-soft)">
+    <circle cx="78" cy="218" r="10" fill="#FFF4B5" />
+    <circle cx="333" cy="82" r="8" fill="#00E5FF" />
+    <circle cx="477" cy="352" r="7" fill="#FFD700" />
+    <circle cx="684" cy="238" r="9" fill="#FF1744" />
+    <circle cx="1148" cy="312" r="8" fill="#B44DFF" />
+    <circle cx="154" cy="474" r="7" fill="#00E5FF" />
+    <circle cx="452" cy="682" r="10" fill="#FFD700" />
+    <circle cx="1062" cy="432" r="9" fill="#FF1744" />
+    <circle cx="762" cy="532" r="7" fill="#00E5FF" />
+    <circle cx="572" cy="732" r="8" fill="#B44DFF" />
+    <circle cx="902" cy="730" r="9" fill="#FFD700" />
+    <circle cx="1142" cy="552" r="7" fill="#FF1744" />
+  </g>
+
+  <g opacity="0.42">
+    <circle cx="972" cy="462" r="14" fill="#FFD700" opacity="0.4" />
+    <circle cx="342" cy="558" r="12" fill="#FF1744" opacity="0.34" />
+    <circle cx="1158" cy="182" r="15" fill="#B44DFF" opacity="0.36" />
+    <circle cx="62" cy="682" r="13" fill="#00E5FF" opacity="0.32" />
+    <circle cx="582" cy="142" r="11" fill="#FFF4B5" opacity="0.3" />
+  </g>
+
+  <g opacity="0.2">
+    <path d="M34 34 H1186" stroke="#FFE880" stroke-width="2" stroke-dasharray="2 56" />
+    <path d="M34 766 H1186" stroke="#FFE880" stroke-width="2" stroke-dasharray="2 56" />
+    <path d="M34 60 V766" stroke="#FFE880" stroke-width="2" stroke-dasharray="2 56" />
+    <path d="M1166 60 V766" stroke="#FFE880" stroke-width="2" stroke-dasharray="2 56" />
+  </g>
+
+  <g opacity="0.95">
+    <path d="M34 34 L78 34" stroke="url(#cb-neon)" stroke-width="4" />
+    <path d="M34 34 L34 78" stroke="url(#cb-neon)" stroke-width="4" />
+    <path d="M34 766 L78 766" stroke="url(#cb-neon)" stroke-width="4" />
+    <path d="M34 766 L34 722" stroke="url(#cb-neon)" stroke-width="4" />
+    <path d="M1166 34 L1122 34" stroke="url(#cb-neon)" stroke-width="4" />
+    <path d="M1166 34 L1166 78" stroke="url(#cb-neon)" stroke-width="4" />
+    <path d="M1166 766 L1122 766" stroke="url(#cb-neon)" stroke-width="4" />
+    <path d="M1166 766 L1166 722" stroke="url(#cb-neon)" stroke-width="4" />
+  </g>
+
+  <g transform="translate(0,0)">
+    <rect x="18" y="18" width="1180" height="760" rx="20" fill="none" stroke="#C9A020" stroke-opacity="0.38" stroke-width="4" />
+    <rect x="24" y="24" width="1168" height="748" rx="16" fill="none" stroke="#FFF4B5" stroke-opacity="0.18" stroke-width="2" />
+    <rect x="0" y="0" width="1200" height="800" fill="none" stroke="rgba(255,255,255,0.08)" stroke-dasharray="1 22" />
+  </g>
+
+  <g transform="translate(0,420)">
+    <path d="M0 255 C220 210, 380 210, 520 250 C650 288, 760 286, 930 240 C1110 192, 1290 178, 1440 236 C1570 286, 1735 294, 1920 248 V660 H0Z" fill="#0B0014" opacity="0.62" />
+    <path d="M0 255 C220 210, 380 210, 520 250 C650 288, 760 286, 930 240 C1110 192, 1290 178, 1440 236 C1570 286, 1735 294, 1920 248" fill="none" stroke="#C9A020" stroke-opacity="0.22" stroke-width="3" />
+  </g>
+
+  <g transform="translate(0,760)">
+    <rect width="1920" height="320" fill="url(#cb-floor)" />
+    <path d="M0 32 C260 0, 440 0, 640 26 C860 54, 1060 56, 1260 30 C1490 0, 1680 0, 1920 26 V320 H0Z" fill="#12061d" opacity="0.86" />
+    <path d="M0 74 H1920" stroke="url(#cb-gold)" stroke-width="2" />
+    <path d="M0 102 H1920" stroke="#B44DFF" stroke-opacity="0.1" stroke-width="2" />
+    <path d="M0 128 H1920" stroke="#FF1744" stroke-opacity="0.06" stroke-width="1" />
+  </g>
+
+  <g transform="translate(960,72)">
+    <circle cx="0" cy="0" r="58" fill="#FFDF63" opacity="0.12" filter="url(#cb-glow)" />
+    <circle cx="0" cy="0" r="44" fill="none" stroke="#FFF4B5" stroke-opacity="0.18" stroke-width="5" />
+    <circle cx="0" cy="0" r="28" fill="none" stroke="#C9A020" stroke-opacity="0.35" stroke-width="4" />
+  </g>
+
+  <g transform="translate(420,80)">
+    <path d="M0 12 L18 0 L36 12 L28 34 H8 Z" fill="url(#cb-ornament)" opacity="0.85" />
+    <path d="M0 12 H36" stroke="#FFF4B5" stroke-opacity="0.22" stroke-width="1" />
+  </g>
+
+  <g transform="translate(1490,92)">
+    <path d="M0 12 L18 0 L36 12 L28 34 H8 Z" fill="url(#cb-ornament)" opacity="0.85" />
+    <path d="M0 12 H36" stroke="#FFF4B5" stroke-opacity="0.22" stroke-width="1" />
+  </g>
+</svg>

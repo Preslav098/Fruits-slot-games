@@ -6,7 +6,10 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "dev:api": "node backend/server.mjs",
+    "test": "node --test backend/tests/*.test.mjs",
+    "start": "node scripts/dev.mjs"
   },
   "devDependencies": {
     "typescript": "~6.0.2",

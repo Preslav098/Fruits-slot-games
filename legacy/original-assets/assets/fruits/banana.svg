@@ -1,0 +1,36 @@
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="bn-g" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stopColor="#fff9c4" />
+          <stop offset="35%" stopColor="#ffee58" />
+          <stop offset="78%" stopColor="#f9a825" />
+          <stop offset="100%" stopColor="#e65100" />
+        </linearGradient>
+        <radialGradient id="bn-rim" cx="80%" cy="85%" r="55%">
+          <stop offset="0%" stopColor="#ffd700" stopOpacity="0.45" />
+          <stop offset="100%" stopColor="#ffd700" stopOpacity="0" />
+        </radialGradient>
+        <filter id="bn-sh" x="-25%" y="-25%" width="150%" height="150%">
+          <feDropShadow dx="0" dy="4" stdDeviation="4.5" floodColor="#000" floodOpacity="0.55" />
+        </filter>
+      </defs>
+      <ellipse cx="48" cy="93" rx="27" ry="5" fill="rgba(0,0,0,0.3)" />
+      <path
+        d="M26 72 C22 56, 24 32, 40 18 C50 10, 68 12, 76 22 C81 28, 80 36, 74 38
+           C63 42, 52 28, 44 34 C36 40, 37 59, 38 72 Z"
+        fill="url(#bn-g)"
+        stroke="#e65100"
+        strokeWidth="3"
+        filter="url(#bn-sh)"
+      />
+      <path
+        d="M26 72 C22 56, 24 32, 40 18 C50 10, 68 12, 76 22 C81 28, 80 36, 74 38
+           C63 42, 52 28, 44 34 C36 40, 37 59, 38 72 Z"
+        fill="url(#bn-rim)"
+      />
+      <path d="M40 18 C37 13, 34 9, 38 9 C42 9, 44 15, 40 18 Z" fill="#5d3a1a" stroke="#3e2723" strokeWidth="1.5" />
+      <path d="M26 72 C23 76, 22 82, 26 82 C30 82, 34 76, 38 72 Z" fill="#5d3a1a" stroke="#3e2723" strokeWidth="1.5" />
+      <path d="M30 70 C28 55, 30 35, 42 23" fill="none" stroke="rgba(180,80,0,0.5)" strokeWidth="1.5" strokeLinecap="round" />
+      <path d="M40 25 C52 17, 66 18, 73 26" fill="none" stroke="rgba(255,255,255,0.65)" strokeWidth="5" strokeLinecap="round" />
+      <path d="M40 25 C52 17, 66 18, 73 26" fill="none" stroke="rgba(255,255,255,0.9)" strokeWidth="1.8" strokeLinecap="round" />
+    </svg>

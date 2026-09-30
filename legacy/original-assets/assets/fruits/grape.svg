@@ -1,0 +1,53 @@
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="gr-g" cx="33%" cy="28%" r="66%">
+      <stop offset="0%" stop-color="#e1bee7" />
+      <stop offset="32%" stop-color="#9c27b0" />
+      <stop offset="72%" stop-color="#6a1b9a" />
+      <stop offset="100%" stop-color="#2e0044" />
+    </radialGradient>
+    <radialGradient id="gr-rim" cx="76%" cy="82%" r="50%">
+      <stop offset="0%" stop-color="#ffd700" stop-opacity="0.42" />
+      <stop offset="100%" stop-color="#ffd700" stop-opacity="0" />
+    </radialGradient>
+    <radialGradient id="gr-leaf1" cx="40%" cy="35%" r="65%">
+      <stop offset="0%" stop-color="#a5d6a7" />
+      <stop offset="100%" stop-color="#1b5e20" />
+    </radialGradient>
+    <filter id="gr-sh" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="2.5" stdDeviation="3" flood-color="#000" flood-opacity="0.6" />
+    </filter>
+  </defs>
+  <ellipse cx="50" cy="93" rx="26" ry="5" fill="rgba(0,0,0,0.3)" />
+  <circle cx="50" cy="28" r="11" fill="url(#gr-g)" stroke="#2e0044" stroke-width="2.2" filter="url(#gr-sh)" />
+  <circle cx="40" cy="40" r="11" fill="url(#gr-g)" stroke="#2e0044" stroke-width="2.2" filter="url(#gr-sh)" />
+  <circle cx="60" cy="40" r="11" fill="url(#gr-g)" stroke="#2e0044" stroke-width="2.2" filter="url(#gr-sh)" />
+  <circle cx="30" cy="52" r="11" fill="url(#gr-g)" stroke="#2e0044" stroke-width="2.2" filter="url(#gr-sh)" />
+  <circle cx="50" cy="52" r="11" fill="url(#gr-g)" stroke="#2e0044" stroke-width="2.2" filter="url(#gr-sh)" />
+  <circle cx="70" cy="52" r="11" fill="url(#gr-g)" stroke="#2e0044" stroke-width="2.2" filter="url(#gr-sh)" />
+  <circle cx="40" cy="64" r="11" fill="url(#gr-g)" stroke="#2e0044" stroke-width="2.2" filter="url(#gr-sh)" />
+  <circle cx="60" cy="64" r="11" fill="url(#gr-g)" stroke="#2e0044" stroke-width="2.2" filter="url(#gr-sh)" />
+  <circle cx="50" cy="76" r="11" fill="url(#gr-g)" stroke="#2e0044" stroke-width="2.2" filter="url(#gr-sh)" />
+  <circle cx="50" cy="28" r="11" fill="url(#gr-rim)" />
+  <circle cx="40" cy="40" r="11" fill="url(#gr-rim)" />
+  <circle cx="60" cy="40" r="11" fill="url(#gr-rim)" />
+  <circle cx="30" cy="52" r="11" fill="url(#gr-rim)" />
+  <circle cx="50" cy="52" r="11" fill="url(#gr-rim)" />
+  <circle cx="70" cy="52" r="11" fill="url(#gr-rim)" />
+  <circle cx="40" cy="64" r="11" fill="url(#gr-rim)" />
+  <circle cx="60" cy="64" r="11" fill="url(#gr-rim)" />
+  <circle cx="50" cy="76" r="11" fill="url(#gr-rim)" />
+  <ellipse cx="46.5" cy="24.5" rx="4.5" ry="3.2" fill="rgba(255,255,255,0.55)" transform="rotate(-30,46.5,24.5)" />
+  <ellipse cx="36.5" cy="36.5" rx="4.5" ry="3.2" fill="rgba(255,255,255,0.55)" transform="rotate(-30,36.5,36.5)" />
+  <ellipse cx="56.5" cy="36.5" rx="4.5" ry="3.2" fill="rgba(255,255,255,0.55)" transform="rotate(-30,56.5,36.5)" />
+  <ellipse cx="26.5" cy="48.5" rx="4.5" ry="3.2" fill="rgba(255,255,255,0.55)" transform="rotate(-30,26.5,48.5)" />
+  <ellipse cx="46.5" cy="48.5" rx="4.5" ry="3.2" fill="rgba(255,255,255,0.55)" transform="rotate(-30,46.5,48.5)" />
+  <ellipse cx="66.5" cy="48.5" rx="4.5" ry="3.2" fill="rgba(255,255,255,0.55)" transform="rotate(-30,66.5,48.5)" />
+  <ellipse cx="36.5" cy="60.5" rx="4.5" ry="3.2" fill="rgba(255,255,255,0.55)" transform="rotate(-30,36.5,60.5)" />
+  <ellipse cx="56.5" cy="60.5" rx="4.5" ry="3.2" fill="rgba(255,255,255,0.55)" transform="rotate(-30,56.5,60.5)" />
+  <ellipse cx="46.5" cy="72.5" rx="4.5" ry="3.2" fill="rgba(255,255,255,0.55)" transform="rotate(-30,46.5,72.5)" />
+  <path d="M50 17 C50 10, 55 7, 57 5" stroke="#6d4c41" stroke-width="3" stroke-linecap="round" fill="none" />
+  <path d="M47 14 C40 5, 28 7, 30 18 C32 26, 44 24, 47 14 Z" fill="url(#gr-leaf1)" stroke="#1a3a0a" stroke-width="1.8" />
+  <path d="M47 14 C40 18, 34 20, 30 18" fill="none" stroke="#c8e6c9" stroke-width="0.9" opacity="0.55" />
+  <path d="M53 12 C60 3, 72 6, 70 17 C68 25, 56 23, 53 12 Z" fill="#388e3c" stroke="#1a3a0a" stroke-width="1.8" />
+</svg>

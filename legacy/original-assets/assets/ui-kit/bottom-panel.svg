@@ -1,0 +1,21 @@
+<svg width="1100" height="150" viewBox="0 0 1100 150" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bp-gold" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FFF4B5" />
+      <stop offset="16%" stop-color="#EDD040" />
+      <stop offset="36%" stop-color="#C9A020" />
+      <stop offset="60%" stop-color="#6B4A00" />
+      <stop offset="100%" stop-color="#FFF4B5" />
+    </linearGradient>
+    <linearGradient id="bp-inner" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#2E008C" />
+      <stop offset="55%" stop-color="#120040" />
+      <stop offset="100%" stop-color="#1E0062" />
+    </linearGradient>
+  </defs>
+  <rect x="0" y="0" width="1100" height="150" rx="32" fill="url(#bp-gold)" />
+  <rect x="4" y="4" width="1092" height="142" rx="28" fill="url(#bp-inner)" />
+  <rect x="10" y="10" width="1080" height="64" rx="24" fill="rgba(255,255,255,0.06)" />
+  <rect x="20" y="78" width="1060" height="52" rx="20" fill="rgba(0,0,0,0.14)" />
+  <line x1="78" y1="8" x2="1022" y2="8" stroke="rgba(180,77,255,0.82)" stroke-width="1" />
+</svg>

@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1310" height="720" viewBox="0 0 1310 720" fill="none">
+  <title>Gold and amethyst slot machine reel frame</title>
+  <defs>
+    <linearGradient id="outerGold" x1="70" y1="16" x2="1210" y2="704" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#6E3815"/>
+      <stop offset=".09" stop-color="#D49138"/>
+      <stop offset=".23" stop-color="#FFF0A9"/>
+      <stop offset=".39" stop-color="#BA722A"/>
+      <stop offset=".58" stop-color="#F8CF70"/>
+      <stop offset=".78" stop-color="#A65A22"/>
+      <stop offset=".92" stop-color="#F8D67E"/>
+      <stop offset="1" stop-color="#704019"/>
+    </linearGradient>
+    <linearGradient id="innerGold" x1="655" y1="69" x2="655" y2="651" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFF0AB"/>
+      <stop offset=".045" stop-color="#D7993F"/>
+      <stop offset=".13" stop-color="#754018"/>
+      <stop offset=".5" stop-color="#D99B42"/>
+      <stop offset=".87" stop-color="#704019"/>
+      <stop offset=".96" stop-color="#E6B75C"/>
+      <stop offset="1" stop-color="#FFF1B4"/>
+    </linearGradient>
+    <linearGradient id="enamel" x1="655" y1="43" x2="655" y2="677" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#432051"/>
+      <stop offset=".09" stop-color="#190F29"/>
+      <stop offset=".47" stop-color="#32173F"/>
+      <stop offset=".55" stop-color="#4B2555"/>
+      <stop offset=".91" stop-color="#1A0D29"/>
+      <stop offset="1" stop-color="#502653"/>
+    </linearGradient>
+    <linearGradient id="goldDetail" x1="0" y1="31" x2="0" y2="76" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFF2B3"/>
+      <stop offset=".48" stop-color="#DAA24E"/>
+      <stop offset="1" stop-color="#875020"/>
+    </linearGradient>
+    <radialGradient id="amethyst" cx="0" cy="0" r="1" gradientTransform="translate(652 49) rotate(78) scale(18 24)" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#B881C0"/>
+      <stop offset=".35" stop-color="#6B3680"/>
+      <stop offset=".8" stop-color="#2A143E"/>
+      <stop offset="1" stop-color="#160D26"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Every filled contour is a ring; the center is never painted. -->
+  <path fill="#3B1B30" fill-rule="evenodd" d="M68 16H1242A52 52 0 0 1 1294 68V652A52 52 0 0 1 1242 704H68A52 52 0 0 1 16 652V68A52 52 0 0 1 68 16ZM106 84A22 22 0 0 0 84 106V614A22 22 0 0 0 106 636H1204A22 22 0 0 0 1226 614V106A22 22 0 0 0 1204 84H106Z"/>
+  <path fill="url(#outerGold)" fill-rule="evenodd" d="M69 20H1241A49 49 0 0 1 1290 69V651A49 49 0 0 1 1241 700H69A49 49 0 0 1 20 651V69A49 49 0 0 1 69 20ZM77 43A34 34 0 0 0 43 77V643A34 34 0 0 0 77 677H1233A34 34 0 0 0 1267 643V77A34 34 0 0 0 1233 43H77Z"/>
+  <path fill="url(#enamel)" fill-rule="evenodd" d="M77 43H1233A34 34 0 0 1 1267 77V643A34 34 0 0 1 1233 677H77A34 34 0 0 1 43 643V77A34 34 0 0 1 77 43ZM93 69A24 24 0 0 0 69 93V627A24 24 0 0 0 93 651H1217A24 24 0 0 0 1241 627V93A24 24 0 0 0 1217 69H93Z"/>
+  <path fill="url(#innerGold)" fill-rule="evenodd" d="M93 69H1217A24 24 0 0 1 1241 93V627A24 24 0 0 1 1217 651H93A24 24 0 0 1 69 627V93A24 24 0 0 1 93 69ZM106 84A22 22 0 0 0 84 106V614A22 22 0 0 0 106 636H1204A22 22 0 0 0 1226 614V106A22 22 0 0 0 1204 84H106Z"/>
+
+  <!-- Continuous bevel lines follow the perimeter without crossing the opening. -->
+  <rect x="23.5" y="23.5" width="1263" height="673" rx="45.5" stroke="#FFF1AD" stroke-opacity=".78" stroke-width="1.5"/>
+  <rect x="29" y="29" width="1252" height="662" rx="41" stroke="#FFF1AF" stroke-opacity=".25" stroke-width="2"/>
+  <rect x="40" y="40" width="1230" height="640" rx="36" stroke="#5C2A1C" stroke-opacity=".7" stroke-width="2"/>
+  <rect x="48" y="48" width="1214" height="624" rx="30" stroke="#C18645" stroke-opacity=".72" stroke-width="1.5"/>
+  <rect x="64" y="64" width="1182" height="592" rx="27" stroke="#DB9A55" stroke-opacity=".5" stroke-width="1"/>
+  <rect x="73" y="73" width="1164" height="574" rx="21" stroke="#FFF0AA" stroke-opacity=".72" stroke-width="1.5"/>
+  <rect x="81.5" y="81.5" width="1147" height="557" rx="23.5" stroke="#552A1D" stroke-width="3"/>
+
+  <!-- Matching, understated filigree stays inside the top and bottom rails. -->
+  <g stroke="url(#goldDetail)" stroke-linecap="round" stroke-linejoin="round" fill="none">
+    <path d="M287 56H468C487 56 491 46 505 46H580C601 46 603 61 624 61" stroke-width="2"/>
+    <path d="M1023 56H842C823 56 819 46 805 46H730C709 46 707 61 686 61" stroke-width="2"/>
+    <path d="M444 62H488C504 62 509 54 524 54H571" stroke-width="1" opacity=".65"/>
+    <path d="M866 62H822C806 62 801 54 786 54H739" stroke-width="1" opacity=".65"/>
+    <path d="M392 51L400 56L392 61L384 56Z M918 51L926 56L918 61L910 56Z" stroke-width="1.5"/>
+  </g>
+  <g transform="translate(0 720) scale(1 -1)" stroke="url(#goldDetail)" stroke-linecap="round" stroke-linejoin="round" fill="none">
+    <path d="M287 56H468C487 56 491 46 505 46H580C601 46 603 61 624 61" stroke-width="2"/>
+    <path d="M1023 56H842C823 56 819 46 805 46H730C709 46 707 61 686 61" stroke-width="2"/>
+    <path d="M444 62H488C504 62 509 54 524 54H571 M866 62H822C806 62 801 54 786 54H739" stroke-width="1" opacity=".65"/>
+    <path d="M392 51L400 56L392 61L384 56Z M918 51L926 56L918 61L910 56Z" stroke-width="1.5"/>
+  </g>
+
+  <!-- Small inset studs and two faceted purple cabochons. -->
+  <g fill="#A36329" stroke="#FCE1A0" stroke-width="1.5">
+    <circle cx="162" cy="56" r="3.5"/><circle cx="1148" cy="56" r="3.5"/>
+    <circle cx="162" cy="664" r="3.5"/><circle cx="1148" cy="664" r="3.5"/>
+    <circle cx="55" cy="149" r="3"/><circle cx="1255" cy="149" r="3"/>
+    <circle cx="55" cy="571" r="3"/><circle cx="1255" cy="571" r="3"/>
+  </g>
+  <g>
+    <path d="M655 32L672 46V57L655 70L638 57V46Z" fill="#8A4927" stroke="#FFE49B" stroke-width="1.7"/>
+    <path d="M655 36L668 47V55L655 66L642 55V47Z" fill="url(#amethyst)" stroke="#DDA75B" stroke-width="1"/>
+    <path d="M655 39L663 47L655 44L647 47Z" fill="#E3B7DB" opacity=".68"/>
+    <path d="M655 688L672 674V663L655 650L638 663V674Z" fill="#8A4927" stroke="#FFE49B" stroke-width="1.7"/>
+    <path d="M655 684L668 673V665L655 654L642 665V673Z" fill="url(#amethyst)" stroke="#DDA75B" stroke-width="1"/>
+    <path d="M655 657L663 665L655 662L647 665Z" fill="#E3B7DB" opacity=".55"/>
+  </g>
+</svg>

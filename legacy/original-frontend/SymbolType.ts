@@ -1,0 +1,47 @@
+export enum SymbolType {
+    Apple = "apple",
+    Banana = "banana",
+    BlueBerry = "blueBerry",
+    Grape = "grape",
+    RedBerry = "redBerry",
+    Cherry = "cherry",
+    Watermelon = "watermelon",
+    Lemon = "lemon",
+    Orange = "orange",
+    Bell = "bell",
+    Diamond = "diamond",
+    Bar = "bar",
+    LuckySeven = "seven",
+}
+
+export const SymbolImage: Record<SymbolType, string> = {
+    [SymbolType.Apple]: "/assets/fruits/apple.svg",
+    [SymbolType.Banana]: "/assets/fruits/banana.svg",
+    [SymbolType.BlueBerry]: "/assets/fruits/blueBerry.svg",
+    [SymbolType.Grape]: "/assets/fruits/grape.svg",
+    [SymbolType.RedBerry]: "/assets/fruits/redBerry.svg",
+    [SymbolType.Cherry]: "/assets/fruits/cherry.svg",
+    [SymbolType.Watermelon]: "/assets/fruits/watermelon.svg",
+    [SymbolType.Lemon]: "/assets/fruits/lemon.svg",
+    [SymbolType.Orange]: "/assets/fruits/orange.svg",
+    [SymbolType.Bell]: "/assets/fruits/bell.svg",
+    [SymbolType.Diamond]: "/assets/fruits/diamond.svg",
+    [SymbolType.Bar]: "/assets/fruits/bar.svg",
+    [SymbolType.LuckySeven]: "/assets/fruits/seven.svg",
+};
+
+export const ALL_SYMBOLS: SymbolType[] = [
+    SymbolType.Apple,
+    SymbolType.Banana,
+    SymbolType.BlueBerry,
+    SymbolType.Grape,
+    SymbolType.RedBerry,
+    SymbolType.Cherry,
+    SymbolType.Watermelon,
+    SymbolType.Lemon,
+    SymbolType.Orange,
+    SymbolType.Bell,
+    SymbolType.Diamond,
+    SymbolType.Bar,
+    SymbolType.LuckySeven,
+];

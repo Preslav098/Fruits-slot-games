@@ -1,0 +1,30 @@
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+	<defs>
+		<radialGradient id="ap-g" cx="36%" cy="30%" r="68%">
+			<stop offset="0%" stop-color="#d4ff80" />
+			<stop offset="28%" stop-color="#66bb6a" />
+			<stop offset="72%" stop-color="#2e7d32" />
+			<stop offset="100%" stop-color="#1a3a0a" />
+		</radialGradient>
+		<radialGradient id="ap-rim" cx="74%" cy="80%" r="52%">
+			<stop offset="0%" stop-color="#ffd700" stop-opacity="0.55" />
+			<stop offset="100%" stop-color="#ffd700" stop-opacity="0" />
+		</radialGradient>
+		<radialGradient id="ap-leaf" cx="38%" cy="32%" r="66%">
+			<stop offset="0%" stop-color="#a5d6a7" />
+			<stop offset="100%" stop-color="#1b5e20" />
+		</radialGradient>
+		<filter id="ap-sh" x="-25%" y="-25%" width="150%" height="150%">
+			<feDropShadow dx="0" dy="4" stdDeviation="5" flood-color="#000" flood-opacity="0.6" />
+		</filter>
+	</defs>
+	<ellipse cx="50" cy="93" rx="27" ry="5" fill="rgba(0,0,0,0.32)" />
+	<path d="M50 27 C42 27, 17 37, 17 57 C17 76, 33 89, 50 89 C67 89, 83 76, 83 57 C83 37, 58 27, 50 27 Z" fill="url(#ap-g)" stroke="#1a3a0a" stroke-width="3.2" filter="url(#ap-sh)" />
+	<path d="M44 30 Q50 24 56 30" fill="none" stroke="#1a3a0a" stroke-width="2.5" stroke-linecap="round" />
+	<path d="M50 27 C42 27, 17 37, 17 57 C17 76, 33 89, 50 89 C67 89, 83 76, 83 57 C83 37, 58 27, 50 27 Z" fill="url(#ap-rim)" />
+	<path d="M50 27 C49 19, 56 13, 59 10" stroke="#6d4c41" stroke-width="3.5" stroke-linecap="round" fill="none" />
+	<path d="M55 18 C63 9, 75 13, 68 23 C64 28, 56 25, 55 18 Z" fill="url(#ap-leaf)" stroke="#1a3a0a" stroke-width="1.8" />
+	<path d="M55 18 C63 21, 67 23, 68 23" fill="none" stroke="#c8e6c9" stroke-width="0.9" opacity="0.6" />
+	<ellipse cx="33" cy="41" rx="12" ry="8" fill="rgba(255,255,255,0.52)" transform="rotate(-32,33,41)" />
+	<ellipse cx="28" cy="35" rx="5.5" ry="3.5" fill="rgba(255,255,255,0.78)" transform="rotate(-32,28,35)" />
+</svg>

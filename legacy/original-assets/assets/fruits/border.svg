@@ -1,0 +1,458 @@
+<svg
+      width="240"
+      height="720"
+      viewBox="0 0 240 720"
+      xmlns="http://www.w3.org/2000/svg"
+      style={{ overflow: "visible" }}
+    >
+      <defs>
+
+        {/* ── GOLD GRADIENTS ── */}
+
+        {/* Primary metallic gold — vertical, simulates curved polished bar */}
+        <linearGradient id="goldMain" x1="0" y1="0" x2="0" y2="1" gradientUnits="objectBoundingBox">
+          <stop offset="0%"   stopColor="#fffce8" />
+          <stop offset="4%"   stopColor="#ffd700" />
+          <stop offset="16%"  stopColor="#d4a012" />
+          <stop offset="30%"  stopColor="#8c6008" />
+          <stop offset="50%"  stopColor="#5c3e04" />
+          <stop offset="70%"  stopColor="#8c6008" />
+          <stop offset="84%"  stopColor="#d4a012" />
+          <stop offset="96%"  stopColor="#ffd700" />
+          <stop offset="100%" stopColor="#e8c030" />
+        </linearGradient>
+
+        {/* Cross metallic overlay — horizontal, creates polished cylinder cross-glint */}
+        <linearGradient id="goldCross" x1="0" y1="0" x2="1" y2="0" gradientUnits="objectBoundingBox">
+          <stop offset="0%"   stopColor="#fff8d0" stopOpacity="0.92" />
+          <stop offset="6%"   stopColor="#ffd700" stopOpacity="0.55" />
+          <stop offset="20%"  stopColor="#b89010" stopOpacity="0.28" />
+          <stop offset="50%"  stopColor="#3a2004" stopOpacity="0.22" />
+          <stop offset="80%"  stopColor="#b89010" stopOpacity="0.28" />
+          <stop offset="94%"  stopColor="#ffd700" stopOpacity="0.55" />
+          <stop offset="100%" stopColor="#fff8d0" stopOpacity="0.92" />
+        </linearGradient>
+
+        {/* Divider bar metallic */}
+        <linearGradient id="dividerGold" x1="0" y1="0" x2="0" y2="1" gradientUnits="objectBoundingBox">
+          <stop offset="0%"   stopColor="#fffce0" />
+          <stop offset="18%"  stopColor="#ffd700" />
+          <stop offset="40%"  stopColor="#a07818" />
+          <stop offset="60%"  stopColor="#7a5808" />
+          <stop offset="82%"  stopColor="#ffd700" />
+          <stop offset="100%" stopColor="#c8a020" />
+        </linearGradient>
+
+        {/* ── PURPLE GRADIENTS ── */}
+
+        {/* Deep enamel interior — rich jewel tone */}
+        <radialGradient id="purpleMain" cx="50%" cy="50%" r="72%"
+          gradientUnits="userSpaceOnUse" fx="110" fy="280">
+          <stop offset="0%"   stopColor="#5c00a0" />
+          <stop offset="30%"  stopColor="#340072" />
+          <stop offset="65%"  stopColor="#1e0050" />
+          <stop offset="100%" stopColor="#0e0028" />
+        </radialGradient>
+
+        {/* Inner ambient purple glow */}
+        <radialGradient id="purpleAmbient" cx="50%" cy="50%" r="70%"
+          gradientUnits="userSpaceOnUse" fx="90" fy="260">
+          <stop offset="0%"   stopColor="#a050ff" stopOpacity="0.20" />
+          <stop offset="55%"  stopColor="#7800ee" stopOpacity="0.09" />
+          <stop offset="100%" stopColor="#4400aa" stopOpacity="0"    />
+        </radialGradient>
+
+        {/* Enamel sheen — glossy highlight in upper-left of interior */}
+        <radialGradient id="purpleSheen" cx="28%" cy="22%" r="52%"
+          gradientUnits="userSpaceOnUse" fx="55" fy="120">
+          <stop offset="0%"   stopColor="#d0a0ff" stopOpacity="0.22" />
+          <stop offset="45%"  stopColor="#9060ef" stopOpacity="0.07" />
+          <stop offset="100%" stopColor="#6000cc" stopOpacity="0"    />
+        </radialGradient>
+
+        {/* Cell recess — darker pocket for each symbol slot */}
+        <radialGradient id="cellBg" cx="50%" cy="50%" r="70%">
+          <stop offset="0%"   stopColor="#260048" />
+          <stop offset="60%"  stopColor="#160032" />
+          <stop offset="100%" stopColor="#0c001c" />
+        </radialGradient>
+
+        {/* ── GLOSS GRADIENTS ── */}
+
+        <linearGradient id="glossLeft" x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0%"   stopColor="white" stopOpacity="0.52" />
+          <stop offset="50%"  stopColor="white" stopOpacity="0.14" />
+          <stop offset="100%" stopColor="white" stopOpacity="0"    />
+        </linearGradient>
+
+        <linearGradient id="glossTop" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%"   stopColor="white" stopOpacity="0.48" />
+          <stop offset="100%" stopColor="white" stopOpacity="0"    />
+        </linearGradient>
+
+        {/* ── FILTERS ── */}
+
+        {/* Neon gold outer glow — expands and blurs the frame alpha, tints gold */}
+        <filter id="neonGold" x="-22%" y="-5%" width="144%" height="110%">
+          <feMorphology in="SourceAlpha" operator="dilate" radius="4" result="expanded" />
+          <feGaussianBlur in="expanded" stdDeviation="16" result="blurred" />
+          <feColorMatrix in="blurred" type="matrix"
+            values="1.3 0 0 0 0.85  0.9 0.7 0 0 0.38  0 0 0 0 0  0 0 0 0.9 0"
+            result="goldGlow" />
+          <feMerge>
+            <feMergeNode in="goldGlow" />
+            <feMergeNode in="SourceGraphic" />
+          </feMerge>
+        </filter>
+
+        {/* Purple border glow — soft bloom on inner purple edge */}
+        <filter id="purpleEdgeGlow" x="-12%" y="-3%" width="124%" height="106%">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="5.5" result="blur" />
+          <feMerge>
+            <feMergeNode in="blur" />
+            <feMergeNode in="SourceGraphic" />
+          </feMerge>
+        </filter>
+
+        {/* Cell inner shadow — deepens the recess */}
+        <filter id="cellShadow" x="-10%" y="-5%" width="120%" height="110%">
+          <feGaussianBlur in="SourceAlpha" stdDeviation="9" result="blur" />
+          <feOffset in="blur" dx="0" dy="2" result="shifted" />
+          <feComposite in="shifted" in2="SourceGraphic" operator="in" result="inner" />
+          <feMerge>
+            <feMergeNode in="inner" />
+            <feMergeNode in="SourceGraphic" />
+          </feMerge>
+        </filter>
+
+        {/* ── CLIP PATHS ── */}
+        <clipPath id="frameClip">
+          <rect x="0" y="0" width="240" height="720" rx="22" />
+        </clipPath>
+        <clipPath id="purpleClip">
+          <rect x="22" y="22" width="196" height="676" rx="9" />
+        </clipPath>
+
+      </defs>
+
+      {/* ════════════════════════════════════════════
+          LAYER 1 — OUTER NEON GOLD GLOW
+          (sits outside the frame, uses neonGold filter)
+      ════════════════════════════════════════════ */}
+      <rect x="0" y="0" width="240" height="720" rx="22"
+        fill="#ffd700" filter="url(#neonGold)" opacity="0.72" />
+
+      {/* ════════════════════════════════════════════
+          LAYER 2 — GOLD FRAME BODY
+      ════════════════════════════════════════════ */}
+      {/* Primary vertical gold */}
+      <rect x="0" y="0" width="240" height="720" rx="22" fill="url(#goldMain)" />
+      {/* Cross metallic sheen overlay */}
+      <rect x="0" y="0" width="240" height="720" rx="22" fill="url(#goldCross)" />
+
+      {/* ════════════════════════════════════════════
+          LAYER 3 — DEEP MULTI-CHANNEL BEVEL
+          Alternating bright → dark → bright channels
+          cut inward like a precision-machined frame
+      ════════════════════════════════════════════ */}
+      {/* Outermost rim highlight — catches the brightest light */}
+      <rect x="0.8" y="0.8" width="238.4" height="718.4" rx="21.6"
+        fill="none" stroke="rgba(255,253,200,0.92)" strokeWidth="1.2" />
+      {/* First dark groove */}
+      <rect x="4"   y="4"   width="232"   height="712"   rx="19.5"
+        fill="none" stroke="rgba(0,0,0,0.82)" strokeWidth="3.2" />
+      {/* First raised highlight band */}
+      <rect x="8"   y="8"   width="224"   height="704"   rx="17"
+        fill="none" stroke="rgba(230,185,40,0.80)" strokeWidth="1.8" />
+      {/* Second dark groove */}
+      <rect x="11.5" y="11.5" width="217" height="697"   rx="14.5"
+        fill="none" stroke="rgba(0,0,0,0.68)" strokeWidth="2.5" />
+      {/* Second raised band */}
+      <rect x="14.5" y="14.5" width="211" height="691"   rx="12.5"
+        fill="none" stroke="rgba(210,168,32,0.62)" strokeWidth="1.4" />
+      {/* Third dark groove — deepest inner channel */}
+      <rect x="17.5" y="17.5" width="205" height="685"   rx="10.5"
+        fill="none" stroke="rgba(0,0,0,0.55)" strokeWidth="2" />
+      {/* Innermost bright rim — leads into purple enamel */}
+      <rect x="20"   y="20"   width="200"  height="680"   rx="9"
+        fill="none" stroke="rgba(255,230,80,0.42)" strokeWidth="0.9" />
+
+      {/* ════════════════════════════════════════════
+          LAYER 4 — PURPLE ENAMEL INTERIOR
+      ════════════════════════════════════════════ */}
+      <rect x="22" y="22" width="196" height="676" rx="8" fill="url(#purpleMain)" />
+      {/* Ambient purple bloom */}
+      <rect x="22" y="22" width="196" height="676" rx="8" fill="url(#purpleAmbient)" />
+      {/* Glossy enamel sheen */}
+      <rect x="22" y="22" width="196" height="676" rx="8" fill="url(#purpleSheen)" />
+
+      {/* ── INNER PURPLE EDGE GLOW ── */}
+      {/* Glowing purple line hugging inside border */}
+      <rect x="22" y="22" width="196" height="676" rx="8"
+        fill="none" stroke="rgba(160,80,255,0.6)" strokeWidth="4.5"
+        filter="url(#purpleEdgeGlow)" />
+      {/* Fine inner bevel highlight */}
+      <rect x="24"   y="24"   width="192" height="672" rx="7"
+        fill="none" stroke="rgba(200,130,255,0.52)" strokeWidth="1.5" />
+      {/* Inner bevel shadow */}
+      <rect x="26"   y="26"   width="188" height="668" rx="6"
+        fill="none" stroke="rgba(0,0,0,0.52)" strokeWidth="1.2" />
+      {/* Subtle inner-inner glow */}
+      <rect x="28"   y="28"   width="184" height="664" rx="5"
+        fill="none" stroke="rgba(130,60,230,0.22)" strokeWidth="0.8" />
+
+      {/* ════════════════════════════════════════════
+          LAYER 5 — SYMBOL CELLS (3 recessed slots)
+          Cell 1: y=44–244  Cell 2: y=258–458  Cell 3: y=472–672
+          Each 180×200 px, centered x=30–210
+      ════════════════════════════════════════════ */}
+
+      {/* Cell 1 */}
+      <rect x="30" y="44"  width="180" height="200" rx="7" fill="url(#cellBg)" filter="url(#cellShadow)" />
+      {/* Cell 1 outer shadow ring */}
+      <rect x="30" y="44"  width="180" height="200" rx="7"
+        fill="none" stroke="rgba(0,0,0,0.78)" strokeWidth="3.5" />
+      {/* Cell 1 inner bevel bright (simulates light rim on the recess lip) */}
+      <rect x="32" y="46"  width="176" height="196" rx="6"
+        fill="none" stroke="rgba(170,100,255,0.20)" strokeWidth="1.2" />
+      {/* Cell 1 top-left highlight (light catching top edge of recess) */}
+      <line x1="32"  y1="47"  x2="208" y2="47"  stroke="rgba(200,140,255,0.25)" strokeWidth="1" />
+      <line x1="32"  y1="47"  x2="32"  y2="242" stroke="rgba(200,140,255,0.12)" strokeWidth="1" />
+
+      {/* Cell 2 */}
+      <rect x="30" y="258" width="180" height="200" rx="7" fill="url(#cellBg)" filter="url(#cellShadow)" />
+      <rect x="30" y="258" width="180" height="200" rx="7"
+        fill="none" stroke="rgba(0,0,0,0.78)" strokeWidth="3.5" />
+      <rect x="32" y="260" width="176" height="196" rx="6"
+        fill="none" stroke="rgba(170,100,255,0.20)" strokeWidth="1.2" />
+      <line x1="32"  y1="261" x2="208" y2="261" stroke="rgba(200,140,255,0.25)" strokeWidth="1" />
+      <line x1="32"  y1="261" x2="32"  y2="456" stroke="rgba(200,140,255,0.12)" strokeWidth="1" />
+
+      {/* Cell 3 */}
+      <rect x="30" y="472" width="180" height="200" rx="7" fill="url(#cellBg)" filter="url(#cellShadow)" />
+      <rect x="30" y="472" width="180" height="200" rx="7"
+        fill="none" stroke="rgba(0,0,0,0.78)" strokeWidth="3.5" />
+      <rect x="32" y="474" width="176" height="196" rx="6"
+        fill="none" stroke="rgba(170,100,255,0.20)" strokeWidth="1.2" />
+      <line x1="32"  y1="475" x2="208" y2="475" stroke="rgba(200,140,255,0.25)" strokeWidth="1" />
+      <line x1="32"  y1="475" x2="32"  y2="670" stroke="rgba(200,140,255,0.12)" strokeWidth="1" />
+
+      {/* ════════════════════════════════════════════
+          LAYER 6 — GOLD DIVIDERS
+          Divider 1: y=244–258  Divider 2: y=458–472
+      ════════════════════════════════════════════ */}
+
+      {/* Divider 1 */}
+      <rect x="22" y="244" width="196" height="14" fill="url(#dividerGold)" />
+      {/* Divider bright top edge */}
+      <line x1="22" y1="244.8" x2="218" y2="244.8"
+        stroke="rgba(255,253,190,0.88)" strokeWidth="0.9" />
+      {/* Divider dark bottom edge */}
+      <line x1="22" y1="257.2" x2="218" y2="257.2"
+        stroke="rgba(0,0,0,0.58)" strokeWidth="0.9" />
+      {/* Center jewel — diamond */}
+      <rect x="113" y="244" width="14" height="14" rx="1.5"
+        fill="#b89018" stroke="#7a5808" strokeWidth="1.2"
+        transform="rotate(45,120,251)" />
+      {/* Jewel highlight facet */}
+      <rect x="117" y="248" width="6" height="6" rx="0.5"
+        fill="rgba(255,252,170,0.62)"
+        transform="rotate(45,120,251)" />
+      {/* Flanking accent dots */}
+      <circle cx="96"  cy="251" r="2.6" fill="#c8a020" stroke="#7a5808" strokeWidth="0.9" />
+      <circle cx="144" cy="251" r="2.6" fill="#c8a020" stroke="#7a5808" strokeWidth="0.9" />
+      {/* Flanking small lines */}
+      <line x1="24" y1="251" x2="90"  y2="251" stroke="#c8a020" strokeWidth="0.6" opacity="0.5" />
+      <line x1="150" y1="251" x2="216" y2="251" stroke="#c8a020" strokeWidth="0.6" opacity="0.5" />
+
+      {/* Divider 2 */}
+      <rect x="22" y="458" width="196" height="14" fill="url(#dividerGold)" />
+      <line x1="22" y1="458.8" x2="218" y2="458.8"
+        stroke="rgba(255,253,190,0.88)" strokeWidth="0.9" />
+      <line x1="22" y1="471.2" x2="218" y2="471.2"
+        stroke="rgba(0,0,0,0.58)" strokeWidth="0.9" />
+      <rect x="113" y="458" width="14" height="14" rx="1.5"
+        fill="#b89018" stroke="#7a5808" strokeWidth="1.2"
+        transform="rotate(45,120,465)" />
+      <rect x="117" y="462" width="6" height="6" rx="0.5"
+        fill="rgba(255,252,170,0.62)"
+        transform="rotate(45,120,465)" />
+      <circle cx="96"  cy="465" r="2.6" fill="#c8a020" stroke="#7a5808" strokeWidth="0.9" />
+      <circle cx="144" cy="465" r="2.6" fill="#c8a020" stroke="#7a5808" strokeWidth="0.9" />
+      <line x1="24" y1="465" x2="90"  y2="465" stroke="#c8a020" strokeWidth="0.6" opacity="0.5" />
+      <line x1="150" y1="465" x2="216" y2="465" stroke="#c8a020" strokeWidth="0.6" opacity="0.5" />
+
+      {/* ════════════════════════════════════════════
+          LAYER 7 — DECORATIVE ENGRAVED CORNERS
+          All 4 corners share the same ornament, mirrored via transform
+      ════════════════════════════════════════════ */}
+
+      {/* ── TOP-LEFT ── */}
+      <g>
+        {/* Three concentric quarter-arc engravings */}
+        <path d="M 66 14 A 52 52 0 0 0 14 66" fill="none" stroke="#9a7412" strokeWidth="2.2" />
+        <path d="M 57 14 A 43 43 0 0 0 14 57" fill="none" stroke="#c8a020" strokeWidth="1.3" />
+        <path d="M 47 14 A 33 33 0 0 0 14 47" fill="none" stroke="#ddb520" strokeWidth="0.75" opacity="0.65" />
+        {/* Arc terminus circles */}
+        <circle cx="66" cy="14" r="4.2"  fill="#c8a020" stroke="#7a5808" strokeWidth="1.3" />
+        <circle cx="14" cy="66" r="4.2"  fill="#c8a020" stroke="#7a5808" strokeWidth="1.3" />
+        {/* Quarter-point accent dots on outer arc */}
+        <circle cx="42" cy="12" r="2.6" fill="#c8a020" />
+        <circle cx="12" cy="42" r="2.6" fill="#c8a020" />
+        {/* Central engraved diamond jewel */}
+        <rect x="24" y="24" width="14" height="14" rx="1.5"
+          fill="#b89018" stroke="#7a5808" strokeWidth="1.3"
+          transform="rotate(45,31,31)" />
+        {/* Jewel specular facet */}
+        <rect x="27" y="26" width="6" height="6" rx="0.5"
+          fill="rgba(255,252,170,0.58)"
+          transform="rotate(45,31,31)" />
+        {/* Inner jewel detail dot */}
+        <circle cx="31" cy="31" r="1.5" fill="rgba(255,240,120,0.4)" />
+        {/* Short serif tick marks at inner corners */}
+        <line x1="22" y1="14" x2="28" y2="14" stroke="#c8a020" strokeWidth="1.4" opacity="0.72" />
+        <line x1="14" y1="22" x2="14" y2="28" stroke="#c8a020" strokeWidth="1.4" opacity="0.72" />
+      </g>
+
+      {/* ── TOP-RIGHT (mirror horizontal) ── */}
+      <g transform="translate(240,0) scale(-1,1)">
+        <path d="M 66 14 A 52 52 0 0 0 14 66" fill="none" stroke="#9a7412" strokeWidth="2.2" />
+        <path d="M 57 14 A 43 43 0 0 0 14 57" fill="none" stroke="#c8a020" strokeWidth="1.3" />
+        <path d="M 47 14 A 33 33 0 0 0 14 47" fill="none" stroke="#ddb520" strokeWidth="0.75" opacity="0.65" />
+        <circle cx="66" cy="14" r="4.2"  fill="#c8a020" stroke="#7a5808" strokeWidth="1.3" />
+        <circle cx="14" cy="66" r="4.2"  fill="#c8a020" stroke="#7a5808" strokeWidth="1.3" />
+        <circle cx="42" cy="12" r="2.6" fill="#c8a020" />
+        <circle cx="12" cy="42" r="2.6" fill="#c8a020" />
+        <rect x="24" y="24" width="14" height="14" rx="1.5"
+          fill="#b89018" stroke="#7a5808" strokeWidth="1.3"
+          transform="rotate(45,31,31)" />
+        <rect x="27" y="26" width="6" height="6" rx="0.5"
+          fill="rgba(255,252,170,0.58)"
+          transform="rotate(45,31,31)" />
+        <circle cx="31" cy="31" r="1.5" fill="rgba(255,240,120,0.4)" />
+        <line x1="22" y1="14" x2="28" y2="14" stroke="#c8a020" strokeWidth="1.4" opacity="0.72" />
+        <line x1="14" y1="22" x2="14" y2="28" stroke="#c8a020" strokeWidth="1.4" opacity="0.72" />
+      </g>
+
+      {/* ── BOTTOM-LEFT (mirror vertical) ── */}
+      <g transform="translate(0,720) scale(1,-1)">
+        <path d="M 66 14 A 52 52 0 0 0 14 66" fill="none" stroke="#9a7412" strokeWidth="2.2" />
+        <path d="M 57 14 A 43 43 0 0 0 14 57" fill="none" stroke="#c8a020" strokeWidth="1.3" />
+        <path d="M 47 14 A 33 33 0 0 0 14 47" fill="none" stroke="#ddb520" strokeWidth="0.75" opacity="0.65" />
+        <circle cx="66" cy="14" r="4.2"  fill="#c8a020" stroke="#7a5808" strokeWidth="1.3" />
+        <circle cx="14" cy="66" r="4.2"  fill="#c8a020" stroke="#7a5808" strokeWidth="1.3" />
+        <circle cx="42" cy="12" r="2.6" fill="#c8a020" />
+        <circle cx="12" cy="42" r="2.6" fill="#c8a020" />
+        <rect x="24" y="24" width="14" height="14" rx="1.5"
+          fill="#b89018" stroke="#7a5808" strokeWidth="1.3"
+          transform="rotate(45,31,31)" />
+        <rect x="27" y="26" width="6" height="6" rx="0.5"
+          fill="rgba(255,252,170,0.58)"
+          transform="rotate(45,31,31)" />
+        <circle cx="31" cy="31" r="1.5" fill="rgba(255,240,120,0.4)" />
+        <line x1="22" y1="14" x2="28" y2="14" stroke="#c8a020" strokeWidth="1.4" opacity="0.72" />
+        <line x1="14" y1="22" x2="14" y2="28" stroke="#c8a020" strokeWidth="1.4" opacity="0.72" />
+      </g>
+
+      {/* ── BOTTOM-RIGHT (mirror both) ── */}
+      <g transform="translate(240,720) scale(-1,-1)">
+        <path d="M 66 14 A 52 52 0 0 0 14 66" fill="none" stroke="#9a7412" strokeWidth="2.2" />
+        <path d="M 57 14 A 43 43 0 0 0 14 57" fill="none" stroke="#c8a020" strokeWidth="1.3" />
+        <path d="M 47 14 A 33 33 0 0 0 14 47" fill="none" stroke="#ddb520" strokeWidth="0.75" opacity="0.65" />
+        <circle cx="66" cy="14" r="4.2"  fill="#c8a020" stroke="#7a5808" strokeWidth="1.3" />
+        <circle cx="14" cy="66" r="4.2"  fill="#c8a020" stroke="#7a5808" strokeWidth="1.3" />
+        <circle cx="42" cy="12" r="2.6" fill="#c8a020" />
+        <circle cx="12" cy="42" r="2.6" fill="#c8a020" />
+        <rect x="24" y="24" width="14" height="14" rx="1.5"
+          fill="#b89018" stroke="#7a5808" strokeWidth="1.3"
+          transform="rotate(45,31,31)" />
+        <rect x="27" y="26" width="6" height="6" rx="0.5"
+          fill="rgba(255,252,170,0.58)"
+          transform="rotate(45,31,31)" />
+        <circle cx="31" cy="31" r="1.5" fill="rgba(255,240,120,0.4)" />
+        <line x1="22" y1="14" x2="28" y2="14" stroke="#c8a020" strokeWidth="1.4" opacity="0.72" />
+        <line x1="14" y1="22" x2="14" y2="28" stroke="#c8a020" strokeWidth="1.4" opacity="0.72" />
+      </g>
+
+      {/* ════════════════════════════════════════════
+          LAYER 8 — MID-EDGE ORNAMENTS
+          Side diamonds at cell centers: y=144, 358, 572
+          Top/bottom center medallions
+      ════════════════════════════════════════════ */}
+
+      {/* Left edge — 3 small diamonds at cell mid-points */}
+      {[144, 358, 572].map((y) => (
+        <g key={`L${y}`} transform={`translate(11,${y})`}>
+          <rect x="-6" y="-6" width="12" height="12" rx="1.2"
+            fill="#b89018" stroke="#7a5808" strokeWidth="1.1"
+            transform="rotate(45)" />
+          <rect x="-2.8" y="-2.8" width="5.6" height="5.6"
+            fill="rgba(255,248,155,0.52)"
+            transform="rotate(45)" />
+          <circle cx="0" cy="0" r="1.2" fill="rgba(255,240,100,0.4)" />
+        </g>
+      ))}
+
+      {/* Right edge — mirrored */}
+      {[144, 358, 572].map((y) => (
+        <g key={`R${y}`} transform={`translate(229,${y})`}>
+          <rect x="-6" y="-6" width="12" height="12" rx="1.2"
+            fill="#b89018" stroke="#7a5808" strokeWidth="1.1"
+            transform="rotate(45)" />
+          <rect x="-2.8" y="-2.8" width="5.6" height="5.6"
+            fill="rgba(255,248,155,0.52)"
+            transform="rotate(45)" />
+          <circle cx="0" cy="0" r="1.2" fill="rgba(255,240,100,0.4)" />
+        </g>
+      ))}
+
+      {/* Top-center medallion */}
+      <g transform="translate(120,11)">
+        <rect x="-9" y="-6" width="18" height="12" rx="2"
+          fill="#b89018" stroke="#7a5808" strokeWidth="1.3"
+          transform="rotate(45)" />
+        <rect x="-4.5" y="-3" width="9" height="6" rx="0.5"
+          fill="rgba(255,248,155,0.55)"
+          transform="rotate(45)" />
+        <circle cx="0" cy="0" r="1.8" fill="rgba(255,240,100,0.4)" />
+        {/* Flanking wing dots */}
+        <circle cx="-20" cy="0" r="3"   fill="#c8a020" opacity="0.80" />
+        <circle cx=" 20" cy="0" r="3"   fill="#c8a020" opacity="0.80" />
+        <line x1="-18" y1="0" x2="-12" y2="0" stroke="#c8a020" strokeWidth="1.3" />
+        <line x1=" 12" y1="0" x2=" 18" y2="0" stroke="#c8a020" strokeWidth="1.3" />
+        <line x1="-10" y1="0" x2=" -7" y2="0" stroke="#c8a020" strokeWidth="0.8" opacity="0.5" />
+        <line x1="  7" y1="0" x2=" 10" y2="0" stroke="#c8a020" strokeWidth="0.8" opacity="0.5" />
+      </g>
+
+      {/* Bottom-center medallion */}
+      <g transform="translate(120,709)">
+        <rect x="-9" y="-6" width="18" height="12" rx="2"
+          fill="#b89018" stroke="#7a5808" strokeWidth="1.3"
+          transform="rotate(45)" />
+        <rect x="-4.5" y="-3" width="9" height="6" rx="0.5"
+          fill="rgba(255,248,155,0.55)"
+          transform="rotate(45)" />
+        <circle cx="0" cy="0" r="1.8" fill="rgba(255,240,100,0.4)" />
+        <circle cx="-20" cy="0" r="3"   fill="#c8a020" opacity="0.80" />
+        <circle cx=" 20" cy="0" r="3"   fill="#c8a020" opacity="0.80" />
+        <line x1="-18" y1="0" x2="-12" y2="0" stroke="#c8a020" strokeWidth="1.3" />
+        <line x1=" 12" y1="0" x2=" 18" y2="0" stroke="#c8a020" strokeWidth="1.3" />
+        <line x1="-10" y1="0" x2=" -7" y2="0" stroke="#c8a020" strokeWidth="0.8" opacity="0.5" />
+        <line x1="  7" y1="0" x2=" 10" y2="0" stroke="#c8a020" strokeWidth="0.8" opacity="0.5" />
+      </g>
+
+      {/* ════════════════════════════════════════════
+          LAYER 9 — GLOSSY REFLECTIONS
+          Clipped to frame boundary so corners stay clean
+      ════════════════════════════════════════════ */}
+      <g clipPath="url(#frameClip)">
+        {/* Left-face gloss — main specular streak */}
+        <rect x="0" y="0" width="52" height="720" fill="url(#glossLeft)" opacity="0.48" />
+        {/* Top-face gloss — horizontal sweep */}
+        <rect x="0" y="0" width="240" height="42" fill="url(#glossTop)"  opacity="0.40" />
+        {/* Secondary reflection on inner left border strip (between bevel and purple) */}
+        <rect x="22" y="22" width="22" height="676" fill="url(#glossLeft)" opacity="0.16"
+          clipPath="url(#purpleClip)" />
+      </g>
+
+    </svg>

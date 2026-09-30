@@ -1,0 +1,28 @@
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="bl-g" cx="34%" cy="30%" r="66%">
+      <stop offset="0%" stop-color="#90caf9" />
+      <stop offset="28%" stop-color="#3f51b5" />
+      <stop offset="68%" stop-color="#1a237e" />
+      <stop offset="100%" stop-color="#0a0a30" />
+    </radialGradient>
+    <radialGradient id="bl-rim" cx="74%" cy="80%" r="52%">
+      <stop offset="0%" stop-color="#ffd700" stop-opacity="0.48" />
+      <stop offset="100%" stop-color="#ffd700" stop-opacity="0" />
+    </radialGradient>
+    <filter id="bl-sh" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="4" stdDeviation="5.5" flood-color="#000" flood-opacity="0.6" />
+    </filter>
+  </defs>
+  <ellipse cx="50" cy="93" rx="30" ry="5.5" fill="rgba(0,0,0,0.32)" />
+  <circle cx="50" cy="56" r="35" fill="url(#bl-g)" stroke="#0a0a30" stroke-width="3.2" filter="url(#bl-sh)" />
+  <circle cx="50" cy="56" r="35" fill="url(#bl-rim)" />
+  <ellipse cx="50" cy="21" rx="4.5" ry="7" fill="#283593" stroke="#0a0a30" stroke-width="1.4" transform="rotate(0,50,21)" />
+  <ellipse cx="57.608" cy="23.781" rx="4.5" ry="7" fill="#283593" stroke="#0a0a30" stroke-width="1.4" transform="rotate(72,57.608,23.781)" />
+  <ellipse cx="44.412" cy="15.545" rx="4.5" ry="7" fill="#283593" stroke="#0a0a30" stroke-width="1.4" transform="rotate(144,44.412,15.545)" />
+  <ellipse cx="55.588" cy="15.545" rx="4.5" ry="7" fill="#283593" stroke="#0a0a30" stroke-width="1.4" transform="rotate(216,55.588,15.545)" />
+  <ellipse cx="42.392" cy="23.781" rx="4.5" ry="7" fill="#283593" stroke="#0a0a30" stroke-width="1.4" transform="rotate(288,42.392,23.781)" />
+  <circle cx="50" cy="21" r="4.5" fill="#3949ab" stroke="#0a0a30" stroke-width="1.5" />
+  <ellipse cx="35" cy="43" rx="13" ry="9" fill="rgba(255,255,255,0.52)" transform="rotate(-30,35,43)" />
+  <ellipse cx="30" cy="37" rx="5.5" ry="4" fill="rgba(255,255,255,0.78)" transform="rotate(-30,30,37)" />
+</svg>

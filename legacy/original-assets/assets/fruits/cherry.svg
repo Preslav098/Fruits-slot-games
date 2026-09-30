@@ -1,0 +1,35 @@
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="ch-g" cx="33%" cy="28%" r="65%">
+      <stop offset="0%" stop-color="#ffcdd2" />
+      <stop offset="22%" stop-color="#e53935" />
+      <stop offset="68%" stop-color="#b71c1c" />
+      <stop offset="100%" stop-color="#5c0000" />
+    </radialGradient>
+    <radialGradient id="ch-rim" cx="75%" cy="80%" r="50%">
+      <stop offset="0%" stop-color="#ffd700" stop-opacity="0.42" />
+      <stop offset="100%" stop-color="#ffd700" stop-opacity="0" />
+    </radialGradient>
+    <filter id="ch-sh" x="-25%" y="-25%" width="150%" height="150%">
+      <feDropShadow dx="0" dy="3.5" stdDeviation="4.5" flood-color="#000" flood-opacity="0.6" />
+    </filter>
+    <radialGradient id="ch-leaf" cx="38%" cy="32%" r="64%">
+      <stop offset="0%" stop-color="#c5e1a5" />
+      <stop offset="100%" stop-color="#1b5e20" />
+    </radialGradient>
+  </defs>
+  <ellipse cx="50" cy="93" rx="30" ry="5" fill="rgba(0,0,0,0.3)" />
+  <path d="M47 17 C46 9, 50 5, 52 4" stroke="#2e7d32" stroke-width="3.2" stroke-linecap="round" fill="none" />
+  <path d="M47 17 C44 24, 34 34, 30 54" stroke="#388e3c" stroke-width="3.2" stroke-linecap="round" fill="none" />
+  <path d="M47 17 C50 24, 62 32, 68 54" stroke="#388e3c" stroke-width="3.2" stroke-linecap="round" fill="none" />
+  <path d="M44 14 C38 5, 27 8, 28 18 C29 26, 41 24, 44 14 Z" fill="url(#ch-leaf)" stroke="#1a3a0a" stroke-width="1.8" />
+  <path d="M44 14 C37 18, 31 20, 28 18" fill="none" stroke="#c8e6c9" stroke-width="0.9" opacity="0.55" />
+  <circle cx="30" cy="69" r="19" fill="url(#ch-g)" stroke="#5c0000" stroke-width="3" filter="url(#ch-sh)" />
+  <circle cx="30" cy="69" r="19" fill="url(#ch-rim)" />
+  <ellipse cx="22" cy="61" rx="7.5" ry="5.5" fill="rgba(255,255,255,0.52)" transform="rotate(-30,22,61)" />
+  <ellipse cx="18" cy="55" rx="3.5" ry="2.5" fill="rgba(255,255,255,0.78)" transform="rotate(-30,18,55)" />
+  <circle cx="70" cy="69" r="19" fill="url(#ch-g)" stroke="#5c0000" stroke-width="3" filter="url(#ch-sh)" />
+  <circle cx="70" cy="69" r="19" fill="url(#ch-rim)" />
+  <ellipse cx="62" cy="61" rx="7.5" ry="5.5" fill="rgba(255,255,255,0.52)" transform="rotate(-30,62,61)" />
+  <ellipse cx="58" cy="55" rx="3.5" ry="2.5" fill="rgba(255,255,255,0.78)" transform="rotate(-30,58,55)" />
+</svg>

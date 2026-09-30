@@ -1,8 +1,8 @@
-import { PAYLINES } from "./Payline";
-import { PAYTABLE } from "./PayTable.ts";
-import { SymbolType } from "./SymbolType";
-import type { WinningLine } from "./interfaces/WinningLine.ts";
-import type { WinResult } from "./interfaces/WinResult.ts";
+import { PAYLINES } from "./config/Payline.ts";
+import { PAYTABLE } from "./config/Paytable.ts";
+import { SymbolType } from "../../frontend/src/interfaces/SymbolType.ts";
+import type { WinningLine } from "../../frontend/src/interfaces/WinningLine.ts";
+import type { WinResult } from "../../frontend/src/interfaces/WinResult.ts";
 
 export class WinChecker {
     static calculateWin(grid: SymbolType[][], bet: number): WinResult {

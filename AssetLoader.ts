@@ -1,5 +1,5 @@
 import { Assets } from "pixi.js";
-import { SymbolImage } from "./SymbolType";
+import { SymbolImage } from "../../frontend/src/interfaces/SymbolType";
 
 export class AssetLoader {
     static async load() {

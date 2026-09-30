@@ -1,4 +1,4 @@
-import { SymbolType } from "../SymbolType.ts";
+import { SymbolType } from "./SymbolType.ts";
 
 export interface WinningLine {
     paylineIndex: number;

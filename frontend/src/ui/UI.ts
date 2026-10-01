@@ -1,5 +1,10 @@
-import { Application, Container, Text, TextStyle } from "pixi.js";
-import { gsap } from "gsap";
+import {
+    Application,
+    Container,
+    Text,
+    TextStyle,
+} from "pixi.js";
+
 import {
     createBottomPanel,
     createGreenSpinButton,
@@ -9,202 +14,405 @@ import {
 } from "../CasinoStyle";
 
 export class UI extends Container {
+    private credits = 0;
+    private bet = 10;
+    private win = 0;
+
+    private busy = false;
+    private canSkip = false;
+    private spinEnabled = true;
+
     private creditsText!: Text;
     private betText!: Text;
     private winText!: Text;
-    private spinButton!: Container;
     private spinText!: Text;
-    private betButtons: Container[] = [];
 
-    private panelX = 0;
-    private panelY = 0;
-    private panelWidth = 1100;
-    private panelHeight = 140;
+    private spinButton!: Container;
+    private betButtons: Container[] = [];
 
     constructor(
         app: Application,
         private onSpinClick: () => void,
         private onBetIncrease: () => void,
-        private onBetDecrease: () => void
+        private onBetDecrease: () => void,
     ) {
         super();
-
-        this.createBottomPanel();
-        this.createContent();
 
         app.stage.addChild(this);
     }
 
-    private createBottomPanel() {
-        this.panelWidth = 1220;
-        this.panelX = (1600 - this.panelWidth) / 2;
-        this.panelY = 1020 - this.panelHeight - 25;
-
-        const panel = createBottomPanel(this.panelWidth, this.panelHeight);
-        panel.x = this.panelX;
-        panel.y = this.panelY;
-
-        this.addChild(panel);
+    static heightFor(portrait: boolean): number {
+        return portrait ? 160 : 100;
     }
 
-    private createContent() {
-        const centerY = this.panelY + this.panelHeight / 2;
+    resize(width: number, portrait: boolean) {
+        // Запазваме стойностите и състоянието при нова подредба.
+        const previousChildren = this.removeChildren();
 
-        const labelStyle = new TextStyle({
-            fill: 0xffd24a,
-            fontSize: 18,
-            fontWeight: "bold",
+        previousChildren.forEach((child) => {
+            child.destroy({ children: true });
         });
 
-        const valueStyle = new TextStyle({
-            fill: "white",
-            fontSize: 28,
-            fontWeight: "bold",
+        this.betButtons = [];
+
+        const height = UI.heightFor(portrait);
+
+        this.addChild(createBottomPanel(width, height));
+
+        if (portrait) {
+            this.createPortraitLayout(width);
+        } else {
+            this.createWideLayout(width, height);
+        }
+
+        this.applyState();
+    }
+
+    private createPortraitLayout(width: number) {
+        const padding = 12;
+        const gap = 8;
+        const boxWidth = (width - padding * 2 - gap * 2) / 3;
+
+        this.creditsText = this.createStat(
+            "CREDITS",
+            this.credits,
+            padding,
+            10,
+            boxWidth,
+            60,
+        );
+
+        this.betText = this.createStat(
+            "BET",
+            this.bet,
+            padding + boxWidth + gap,
+            10,
+            boxWidth,
+            60,
+        );
+
+        this.winText = this.createStat(
+            "WIN",
+            this.win,
+            padding + (boxWidth + gap) * 2,
+            10,
+            boxWidth,
+            60,
+            true,
+        );
+
+        const buttonSize = 56;
+        const buttonY = 88;
+
+        this.createBetButton(
+            false,
+            padding,
+            buttonY,
+            buttonSize,
+        );
+
+        this.createBetButton(
+            true,
+            width - padding - buttonSize,
+            buttonY,
+            buttonSize,
+        );
+
+        const spinX = padding + buttonSize + gap;
+        const spinWidth =
+            width - padding * 2 - buttonSize * 2 - gap * 2;
+
+        this.createSpinButton(
+            spinX,
+            buttonY,
+            spinWidth,
+            buttonSize,
+        );
+    }
+
+    private createWideLayout(width: number, height: number) {
+        const padding = 12;
+        const gap = 8;
+        const buttonSize = 48;
+
+        const spinWidth = Math.min(
+            200,
+            Math.max(100, width * 0.22),
+        );
+
+        const boxWidth =
+            (
+                width -
+                padding * 2 -
+                gap * 5 -
+                buttonSize * 2 -
+                spinWidth
+            ) / 3;
+
+        const boxHeight = 64;
+        const boxY = (height - boxHeight) / 2;
+        const buttonY = (height - buttonSize) / 2;
+
+        let x = padding;
+
+        this.creditsText = this.createStat(
+            "CREDITS",
+            this.credits,
+            x,
+            boxY,
+            boxWidth,
+            boxHeight,
+        );
+
+        x += boxWidth + gap;
+
+        this.createBetButton(false, x, buttonY, buttonSize);
+
+        x += buttonSize + gap;
+
+        this.betText = this.createStat(
+            "BET",
+            this.bet,
+            x,
+            boxY,
+            boxWidth,
+            boxHeight,
+        );
+
+        x += boxWidth + gap;
+
+        this.createBetButton(true, x, buttonY, buttonSize);
+
+        x += buttonSize + gap;
+
+        this.createSpinButton(
+            x,
+            boxY,
+            spinWidth,
+            boxHeight,
+        );
+
+        x += spinWidth + gap;
+
+        this.winText = this.createStat(
+            "WIN",
+            this.win,
+            x,
+            boxY,
+            boxWidth,
+            boxHeight,
+            true,
+        );
+    }
+
+    private createStat(
+        label: string,
+        value: number,
+        x: number,
+        y: number,
+        width: number,
+        height: number,
+        isWin = false,
+    ): Text {
+        const box = createValueBox(width, height, isWin);
+
+        box.position.set(x, y);
+        this.addChild(box);
+
+        const labelText = new Text({
+            text: label,
+            style: new TextStyle({
+                fill: 0xffd24a,
+                fontSize: width < 100 ? 11 : 13,
+                fontWeight: "bold",
+            }),
         });
 
-        const boxY = centerY - 35;
-        const buttonY = centerY - 32.5;
+        labelText.anchor.set(0.5);
+        labelText.position.set(x + width / 2, y + 17);
+        labelText.eventMode = "none";
 
-        // CREDITS
-        const creditsBox = createValueBox(170, 70);
-        creditsBox.x = this.panelX + 55;
-        creditsBox.y = boxY;
-        this.addChild(creditsBox);
+        const valueText = new Text({
+            text: String(value),
+            style: new TextStyle({
+                fill: isWin ? 0xffff66 : 0xffffff,
+                fontSize: width < 100 ? 19 : 23,
+                fontWeight: "bold",
+            }),
+        });
 
-        this.addLabel("CREDITS", creditsBox.x + 85, creditsBox.y + 18, labelStyle);
+        valueText.anchor.set(0.5);
+        valueText.position.set(
+            x + width / 2,
+            y + height - 20,
+        );
 
-        this.creditsText = this.addValue("1000", creditsBox.x + 85, creditsBox.y + 48, valueStyle);
+        valueText.eventMode = "none";
 
-        // MINUS
-        const minus = createSmallRedButton(65);
-        minus.x = this.panelX + 245;
-        minus.y = buttonY;
-        minus.eventMode = "static";
-        minus.cursor = "pointer";
-        minus.on("pointerdown", () => this.onBetDecrease());
-        this.addChild(minus);
-        this.betButtons.push(minus);
-        this.addButtonText("-", minus.x + 32.5, minus.y + 30, 48);
+        this.addChild(labelText, valueText);
 
-        // BET
-        const betBox = createValueBox(150, 70);
-        betBox.x = this.panelX + 335;
-        betBox.y = boxY;
-        this.addChild(betBox);
+        return valueText;
+    }
 
-        this.addLabel("BET", betBox.x + 75, betBox.y + 18, labelStyle);
+    private createBetButton(
+        increase: boolean,
+        x: number,
+        y: number,
+        size: number,
+    ) {
+        const button = increase
+            ? createSmallBlueButton(size)
+            : createSmallRedButton(size);
 
-        this.betText = this.addValue("10", betBox.x + 75, betBox.y + 48, valueStyle);
+        button.position.set(x, y);
+        button.cursor = "pointer";
 
-        // PLUS
-        const plus = createSmallBlueButton(65);
-        plus.x = this.panelX + 510;
-        plus.y = buttonY;
-        plus.eventMode = "static";
-        plus.cursor = "pointer";
-        plus.on("pointerdown", () => this.onBetIncrease());
-        this.addChild(plus);
-        this.betButtons.push(plus);
-        this.addButtonText("+", plus.x + 32.5, plus.y + 32.5, 42);
+        // pointertap работи с мишка и докосване.
+        button.on("pointertap", () => {
+            if (this.busy) return;
 
-        // SPIN
-        this.spinButton = createGreenSpinButton(250, 88);
-        this.spinButton.x = this.panelX + 605;
-        this.spinButton.y = centerY - 44;
-        this.spinButton.eventMode = "static";
+            if (increase) {
+                this.onBetIncrease();
+            } else {
+                this.onBetDecrease();
+            }
+        });
+
+        const text = new Text({
+            text: increase ? "+" : "−",
+            style: new TextStyle({
+                fill: 0xffffff,
+                fontSize: 34,
+                fontWeight: "bold",
+            }),
+        });
+
+        text.anchor.set(0.5);
+        text.position.set(x + size / 2, y + size / 2);
+        text.eventMode = "none";
+
+        this.addChild(button, text);
+        this.betButtons.push(button);
+    }
+
+    private createSpinButton(
+        x: number,
+        y: number,
+        width: number,
+        height: number,
+    ) {
+        this.spinButton = createGreenSpinButton(width, height);
+
+        this.spinButton.position.set(x, y);
         this.spinButton.cursor = "pointer";
-        this.spinButton.on("pointerdown", () => this.onSpinClick());
-        this.addChild(this.spinButton);
 
-        const spinText = this.spinText = new Text({
+        this.spinButton.on("pointertap", () => {
+            if (this.spinEnabled) this.onSpinClick();
+        });
+
+        this.spinText = new Text({
             text: "SPIN",
             style: new TextStyle({
                 fill: 0xfff4b5,
-                fontSize: 44,
+                fontSize: width < 150 ? 26 : 32,
                 fontWeight: "bold",
                 stroke: {
                     color: 0x004400,
-                    width: 4,
+                    width: 2,
                 },
             }),
         });
 
-        spinText.anchor.set(0.5);
-        spinText.x = this.spinButton.x + 125;
-        spinText.y = this.spinButton.y + 44;
-        this.addChild(spinText);
+        this.spinText.anchor.set(0.5);
 
-        // WIN
-        const winBox = createValueBox(170, 70, true);
-        winBox.x = this.panelX + this.panelWidth - 225;
-        winBox.y = boxY;
-        this.addChild(winBox);
+        this.spinText.position.set(
+            x + width / 2,
+            y + height / 2,
+        );
 
-        this.addLabel("WIN", winBox.x + 85, winBox.y + 18, labelStyle);
+        this.spinText.eventMode = "none";
 
-        this.winText = this.addValue("0", winBox.x + 85, winBox.y + 48, new TextStyle({
-            fill: 0xffff66,
-            fontSize: 28,
-            fontWeight: "bold",
-        }));
+        this.addChild(this.spinButton, this.spinText);
     }
 
-    private addLabel(text: string, x: number, y: number, style: TextStyle) {
-        const label = new Text({ text, style });
-        label.anchor.set(0.5);
-        label.x = x;
-        label.y = y;
-        this.addChild(label);
-    }
-
-    private addValue(text: string, x: number, y: number, style: TextStyle): Text {
-        const value = new Text({ text, style });
-        value.anchor.set(0.5);
-        value.x = x;
-        value.y = y;
-        this.addChild(value);
-        return value;
-    }
-
-    private addButtonText(text: string, x: number, y: number, fontSize: number) {
-        const buttonText = new Text({
-            text,
-            style: new TextStyle({
-                fill: "white",
-                fontSize,
-                fontWeight: "bold",
-            }),
+    private applyState() {
+        this.betButtons.forEach((button) => {
+            button.eventMode = this.busy ? "none" : "static";
+            button.alpha = this.busy ? 0.45 : 1;
         });
 
-        buttonText.anchor.set(0.5);
-        buttonText.x = x;
-        buttonText.y = y;
-        this.addChild(buttonText);
+        if (!this.spinButton) return;
+
+        this.spinButton.eventMode =
+            this.spinEnabled ? "static" : "none";
+
+        this.spinButton.alpha = this.spinEnabled ? 1 : 0.5;
+
+        this.spinText.text = this.busy
+            ? this.canSkip
+                ? "STOP"
+                : "WAIT"
+            : "SPIN";
+
+        this.fitValue(this.creditsText);
+        this.fitValue(this.betText);
+        this.fitValue(this.winText);
     }
 
-    public setSpinEnabled(enabled: boolean) {
-        this.spinButton.eventMode = enabled ? "static" : "none";
+    private fitValue(text: Text) {
+        text.scale.set(1);
 
-        gsap.to(this.spinButton, {
-            alpha: enabled ? 1 : 0.5,
-            duration: 0.25,
-        });
+        const availableWidth = this.betButtons.length
+            ? Math.max(
+                40,
+                // Ограничаваме дългите числа спрямо разстоянието
+                // между центровете на съседните стойности.
+                Math.abs(this.betText.x - this.creditsText.x) - 20,
+            )
+            : 80;
+
+        if (text.width > availableWidth) {
+            text.scale.set(availableWidth / text.width);
+        }
+    }
+
+    setSpinEnabled(enabled: boolean) {
+        this.spinEnabled = enabled;
+        this.applyState();
     }
 
     setBusy(busy: boolean, canSkip = false) {
-        this.betButtons.forEach(button => { button.eventMode = busy ? "none" : "static"; button.alpha = busy ? 0.45 : 1; });
-        this.spinText.text = busy ? (canSkip ? "STOP" : "WAIT") : "SPIN";
-        this.setSpinEnabled(!busy || canSkip);
+        this.busy = busy;
+        this.canSkip = canSkip;
+        this.spinEnabled = !busy || canSkip;
+
+        this.applyState();
     }
+
     updateCredits(value: number) {
-        this.creditsText.text = `${value}`;
+        this.credits = value;
+
+        if (this.creditsText) {
+            this.creditsText.text = String(value);
+            this.fitValue(this.creditsText);
+        }
     }
 
     updateBet(value: number) {
-        this.betText.text = `${value}`;
+        this.bet = value;
+
+        if (this.betText) {
+            this.betText.text = String(value);
+            this.fitValue(this.betText);
+        }
     }
 
     updateWin(value: number) {
-        this.winText.text = `${value}`;
+        this.win = value;
+
+        if (this.winText) {
+            this.winText.text = String(value);
+            this.fitValue(this.winText);
+        }
     }
 }

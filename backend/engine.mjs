@@ -26,11 +26,41 @@ export function validateConfig() {
     fail("paytable must be an object");
   }
 
-  for (const [symbol, multiplier] of Object.entries(
+  for (const [symbol, payouts] of Object.entries(
     config.paytable,
   )) {
-    if (!Number.isSafeInteger(multiplier) || multiplier < 0) {
-      fail(`invalid multiplier for "${symbol}"`);
+    if (
+      !payouts ||
+      typeof payouts !== "object" ||
+      Array.isArray(payouts)
+    ) {
+      fail(`"${symbol}" must have a payout table`);
+    }
+
+    for (let count = 3; count <= strips.length; count++) {
+      const multiplier = payouts[count];
+
+      if (
+        !Number.isSafeInteger(multiplier) ||
+        multiplier < 0
+      ) {
+        fail(
+          `invalid payout for "${symbol}", ${count} matches`,
+        );
+      }
+    }
+
+    for (const count of Object.keys(payouts)) {
+      const value = Number(count);
+
+      if (
+        !Number.isSafeInteger(value) ||
+        value < 3 ||
+        value > strips.length ||
+        String(value) !== count
+      ) {
+        fail(`invalid match count "${count}" for "${symbol}"`);
+      }
     }
   }
 
@@ -119,13 +149,49 @@ export function gridFromStops(stops) {
 }
 export function calculateWin(grid, bet) {
   const winningLines = [];
+
   config.paylines.forEach((line, paylineIndex) => {
     const symbol = grid[0][line[0]];
+
     let count = 1;
-    while (count < strips.length && grid[count][line[count]] === symbol) count++;
-    if (count >= 3) winningLines.push({ paylineIndex, symbol, count, payout: bet * config.paytable[symbol] * (count - 2) });
+
+    while (
+      count < strips.length &&
+      grid[count][line[count]] === symbol
+    ) {
+      count++;
+    }
+
+    if (count < 3) return;
+
+    const multiplier = config.paytable[symbol]?.[count];
+
+    if (
+      !Number.isSafeInteger(multiplier) ||
+      multiplier < 0
+    ) {
+      throw new Error(
+        `Invalid payout for ${symbol}, ${count} matches`,
+      );
+    }
+
+    if (multiplier === 0) return;
+
+    winningLines.push({
+      paylineIndex,
+      symbol,
+      count,
+      payout: bet * multiplier,
+    });
   });
-  return { winningLines, totalWin: winningLines.reduce((sum, line) => sum + line.payout, 0) };
+
+  return {
+    winningLines,
+    totalWin: winningLines.reduce(
+      (sum, line) => sum + line.payout,
+      0,
+    ),
+  };
 }
 export function spin(session, bet, rng = randomInt) {
   if (!Number.isSafeInteger(bet) || bet < config.minBet || bet > config.maxBet || bet % config.betStep !== 0) throw new Error('Invalid bet');

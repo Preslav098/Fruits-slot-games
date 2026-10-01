@@ -1,4 +1,4 @@
-import { Application, Sprite, Texture, Point, Text, TextStyle } from "pixi.js";
+import { Application, Sprite, Texture, Point, Text, TextStyle, Graphics, Container } from "pixi.js";
 import { gsap } from "gsap";
 import { Reel } from "./reel/Reel";
 import { UI } from "./ui/UI";
@@ -8,7 +8,7 @@ import { SlotApi, ApiError } from "./api/SlotApi";
 import { LineRenderer } from "./effects/LineRenderer";
 import rules from "../../shared/game-config.json";
 import type { SpinResult } from "../../shared/contracts";
-import { createReelFrame } from "./CasinoStyle";
+// import { createReelFrame } from "./CasinoStyle";
 import { SpinConfig } from "./config/SpingConfig";
 type Phase = 'loading' | 'idle' | 'requesting' | 'spinning' | 'presenting' | 'destroyed';
 export class Game {
@@ -24,61 +24,253 @@ export class Game {
   private banner?: Sprite;
   private lineTimer?: number;
   private pending?: { bet: number; requestId: string };
+  private board = new Container();
+  private background!: Sprite;
+  private logo!: Sprite;
+
+  private readonly boardWidth =
+    Config.reelCount * Config.reelWidth + 140;
+
+  private readonly boardHeight = Config.reelHeight;
   constructor(private app: Application) { }
   async init() {
     await AssetLoader.load();
-    const background = new Sprite(Texture.from('/assets/ui-kit/casino-background.svg')); background.width = 1600; background.height = 1020; this.app.stage.addChild(background);
-    const logo = new Sprite(Texture.from('/assets/ui-kit/fruits-logo.svg')); logo.anchor.set(0.5, 0); logo.width = 600; logo.height = 100; logo.position.set(800, 10); this.app.stage.addChild(logo);
-    const frameWidth =
-      Config.reelWidth + (Config.reelCount - 1) * 265;
+
+    this.background = new Sprite(
+      Texture.from("/assets/ui-kit/casino-background.svg"),
+    );
+
+    this.app.stage.addChild(this.background);
+
+    this.logo = new Sprite(
+      Texture.from("/assets/ui-kit/fruits-logo.svg"),
+    );
+
+    this.logo.anchor.set(0.5, 0);
+    this.app.stage.addChild(this.logo);
+
+    this.app.stage.addChild(this.board);
 
     const frame = new Sprite(
       Texture.from("/assets/ui-kit/reel-frame.svg"),
     );
 
-    frame.position.set(135, 120);
-    frame.width = frameWidth;
-    frame.height = Config.reelHeight;
+    frame.position.set(0, 0);
+    frame.width = this.boardWidth;
+    frame.height = this.boardHeight;
 
     for (let i = 0; i < Config.reelCount; i++) {
       const reel = new Reel({ ...SpinConfig });
 
       reel.position.set(
-        135 + 70 + i * Config.reelWidth,
-        120,
+        70 + i * Config.reelWidth,
+        0,
       );
 
       this.reels.push(reel);
-      this.app.stage.addChild(reel);
+      this.board.addChild(reel);
     }
 
-    // Общата рамка е над петте колони.
-    this.app.stage.addChild(frame);
-    this.app.stage.addChild(frame);
+    const dividers = new Graphics();
 
-    this.app.stage.addChild(this.lines);
-    this.ui = new UI(this.app, () => { void this.spin(); }, () => this.changeBet(10), () => this.changeBet(-10));
-    this.message.anchor.set(0.5); this.message.position.set(800, 840); this.app.stage.addChild(this.message);
-    this.resize(); window.addEventListener('resize', this.resize);
-    window.addEventListener('keydown', this.keydown);
+    const innerTop = 70;
+    const innerHeight =
+      Config.symbolGap * Config.visibleRows;
+
+    for (let i = 1; i < Config.reelCount; i++) {
+      const x = 70 + i * Config.reelWidth;
+
+      dividers
+        .rect(x - 4, innerTop, 8, innerHeight)
+        .fill({
+          color: 0x39200d,
+          alpha: 0.9,
+        });
+
+      dividers
+        .rect(x - 2, innerTop, 4, innerHeight)
+        .fill(0xc9a020);
+
+      dividers
+        .rect(x - 1, innerTop, 1, innerHeight)
+        .fill(0xfff4b5);
+    }
+
+    this.board.addChild(dividers);
+    this.board.addChild(frame);
+    this.board.addChild(this.lines);
+
+    this.ui = new UI(
+      this.app,
+      () => {
+        void this.spin();
+      },
+      () => this.changeBet(10),
+      () => this.changeBet(-10),
+    );
+
+    this.message.anchor.set(0.5);
+    this.app.stage.addChild(this.message);
+
+    this.resize();
+
+    this.app.renderer.on("resize", this.resize);
+    window.addEventListener("keydown", this.keydown);
+
     this.ui.setBusy(true);
+
     try {
       const session = await this.api.session();
+
       this.credits = session.credits;
-      if (session.lastSpin) {
-        this.win = session.lastSpin.totalWin; this.reels.forEach((reel, i) => reel.setResult(session.lastSpin!.grid[i]));
+
+      const lastSpin = session.lastSpin;
+
+      if (lastSpin) {
+        this.win = lastSpin.totalWin;
+
+        this.reels.forEach((reel, index) => {
+          reel.setResult(lastSpin.grid[index]);
+        });
       }
-      this.api.connect(event => {
-        if (this.phase === 'idle' && event.type === 'session') { this.credits = event.session.credits; this.updateUI(); }
-        if (this.phase === 'idle' && event.type === 'spin:result') { this.credits = event.result.credits; this.win = event.result.totalWin; this.reels.forEach((reel, i) => reel.setResult(event.result.grid[i])); this.updateUI(); }
+
+      this.api.connect((event) => {
+        if (this.phase !== "idle") return;
+
+        if (event.type === "session") {
+          this.credits = event.session.credits;
+          this.updateUI();
+        }
+
+        if (event.type === "spin:result") {
+          this.clearEffects();
+
+          this.credits = event.result.credits;
+          this.win = event.result.totalWin;
+
+          this.reels.forEach((reel, index) => {
+            reel.setResult(event.result.grid[index]);
+          });
+
+          this.updateUI();
+        }
       });
-      this.phase = 'idle'; this.message.text = 'Ready • SPIN or Space'; this.ui.setBusy(false); this.updateUI();
-    } catch { this.message.text = 'Start the API server and reload the page.'; }
+
+      this.phase = "idle";
+      this.message.text = "Ready • SPIN or Space";
+
+      this.ui.setBusy(false);
+      this.updateUI();
+    } catch {
+      this.message.text =
+        "Start the API server and reload the page.";
+    }
   }
   private resize = () => {
-    const scale = Math.min(this.app.screen.width / 1600, this.app.screen.height / 1020);
-    this.app.stage.scale.set(scale); this.app.stage.position.set((this.app.screen.width - 1600 * scale) / 2, (this.app.screen.height - 1020 * scale) / 2);
+    if (!this.ui) return;
+
+    const width = this.app.screen.width;
+    const height = this.app.screen.height;
+
+    const portrait = width < height && width < 700;
+    const shortLandscape = !portrait && height < 500;
+
+    const margin = width < 700 ? 8 : 16;
+
+    this.app.stage.scale.set(1);
+    this.app.stage.position.set(0, 0);
+
+    const backgroundScale = Math.max(
+      width / this.background.texture.width,
+      height / this.background.texture.height,
+    );
+
+    this.background.scale.set(backgroundScale);
+
+    this.background.position.set(
+      (width - this.background.width) / 2,
+      (height - this.background.height) / 2,
+    );
+
+    const logoWidth = Math.min(
+      width * (portrait ? 0.7 : 0.4),
+      shortLandscape ? 200 : 480,
+    );
+
+    this.logo.width = logoWidth;
+    this.logo.height = logoWidth / 6;
+    this.logo.position.set(width / 2, 8);
+
+    const uiHeight = UI.heightFor(portrait);
+    const uiWidth = Math.min(
+      1220,
+      width - margin * 2,
+    );
+
+    this.ui.resize(uiWidth, portrait);
+
+    this.ui.position.set(
+      (width - uiWidth) / 2,
+      height - uiHeight - margin,
+    );
+
+    const top =
+      this.logo.y + this.logo.height + 12;
+
+    const messageSpace = 30;
+
+    const availableHeight = Math.max(
+      1,
+      this.ui.y - top - messageSpace - 8,
+    );
+
+    const boardScale = Math.min(
+      (width - margin * 2) / this.boardWidth,
+      availableHeight / this.boardHeight,
+    );
+
+    this.board.scale.set(boardScale);
+
+    const boardHeight =
+      this.boardHeight * boardScale;
+
+    this.board.position.set(
+      (width - this.boardWidth * boardScale) / 2,
+      top + (availableHeight - boardHeight) / 2,
+    );
+
+    this.message.style.fontSize =
+      portrait ? 13 : 16;
+
+    this.message.style.wordWrap = true;
+    this.message.style.wordWrapWidth =
+      width - margin * 2;
+
+    this.message.position.set(
+      width / 2,
+      this.ui.y - messageSpace / 2,
+    );
+
+    this.resizeBanner();
   };
+  private resizeBanner() {
+    if (!this.banner) return;
+
+    const width = Math.min(
+      700,
+      this.app.screen.width * 0.8,
+      this.boardWidth * this.board.scale.x * 0.75,
+    );
+
+    this.banner.width = width;
+    this.banner.height = width * (230 / 700);
+
+    this.banner.position.set(
+      this.app.screen.width / 2,
+      this.board.y +
+      this.boardHeight * this.board.scale.y / 2,
+    );
+  }
   private keydown = (event: KeyboardEvent) => { if (event.code === 'Space' && !event.repeat) { event.preventDefault(); void this.spin(); } };
   private async spin() {
     if (this.phase === 'spinning') { this.reels.forEach(reel => reel.skip()); return; }
@@ -129,5 +321,12 @@ export class Game {
   private clearEffects() { if (this.lineTimer) clearInterval(this.lineTimer); this.lineTimer = undefined; this.lines.clearLine(); this.reels.forEach(reel => reel.resetEffects()); if (this.banner) { gsap.killTweensOf(this.banner); this.banner.destroy(); this.banner = undefined; } }
   private changeBet(delta: number) { if (this.phase !== 'idle' || this.pending) return; this.bet = Math.max(rules.minBet, Math.min(rules.maxBet, this.bet + delta)); this.updateUI(); }
   private updateUI() { this.ui.updateCredits(this.credits); this.ui.updateBet(this.bet); this.ui.updateWin(this.win); }
-  destroy() { this.phase = 'destroyed'; this.clearEffects(); this.api.destroy(); window.removeEventListener('resize', this.resize); window.removeEventListener('keydown', this.keydown); this.reels.forEach(reel => reel.destroy()); }
+  destroy() {
+    this.phase = 'destroyed';
+    this.clearEffects();
+    this.api.destroy();
+    this.app.renderer.off("resize", this.resize);
+    window.removeEventListener('keydown', this.keydown);
+    this.reels.forEach(reel => reel.destroy());
+  }
 }

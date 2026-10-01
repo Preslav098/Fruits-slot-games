@@ -8,13 +8,17 @@ import { SlotApi, ApiError } from "./api/SlotApi";
 import { LineRenderer } from "./effects/LineRenderer";
 import rules from "../../shared/game-config.json";
 import type { SpinResult } from "../../shared/contracts";
+import { RulesPanel } from "./ui/RulesPanel";
+import { HistoryPanel } from "./ui/HistoryPanel";
 // import { createReelFrame } from "./CasinoStyle";
 import { SpinConfig } from "./config/SpingConfig";
 type Phase = 'loading' | 'idle' | 'requesting' | 'spinning' | 'presenting' | 'destroyed';
 export class Game {
   private reels: Reel[] = [];
+  private historyPanel?: HistoryPanel;
   private api = new SlotApi();
   private ui!: UI;
+  private rulesPanel?: RulesPanel;
   private lines = new LineRenderer();
   private message = new Text({ text: 'Connecting…', style: new TextStyle({ fill: 'white', fontSize: 24 }) });
   private phase: Phase = 'loading';
@@ -108,6 +112,10 @@ export class Game {
       () => this.changeBet(10),
       () => this.changeBet(-10),
     );
+    this.rulesPanel = new RulesPanel();
+    this.rulesPanel.setEnabled(false);
+    this.historyPanel = new HistoryPanel();
+    this.historyPanel.setEnabled(false);
 
     this.message.anchor.set(0.5);
     this.app.stage.addChild(this.message);
@@ -157,6 +165,8 @@ export class Game {
       });
 
       this.phase = "idle";
+      this.rulesPanel.setEnabled(true);
+      this.historyPanel?.setEnabled(true);
       this.message.text = "Ready • SPIN or Space";
 
       this.ui.setBusy(false);
@@ -271,7 +281,14 @@ export class Game {
       this.boardHeight * this.board.scale.y / 2,
     );
   }
-  private keydown = (event: KeyboardEvent) => { if (event.code === 'Space' && !event.repeat) { event.preventDefault(); void this.spin(); } };
+  private keydown = (event: KeyboardEvent) => {
+    if (document.querySelector("dialog[open]")) return;
+    if (document.querySelector("dialog[open]")) return;
+    if (event.code === 'Space' && !event.repeat) {
+      event.preventDefault();
+      void this.spin();
+    }
+  };
   private async spin() {
     if (this.phase === 'spinning') { this.reels.forEach(reel => reel.skip()); return; }
     if (this.phase !== 'idle') return;
@@ -288,10 +305,23 @@ export class Game {
       try { const session = await this.api.session(); this.credits = session.credits; } catch { /* Retry preserves request ID. */ }
       this.message.text = `${error instanceof Error ? error.message : 'Connection failed'} • press SPIN to retry`;
     } finally {
-      if (this.phase as Phase !== 'destroyed') { this.phase = 'idle'; this.ui.setBusy(false); this.updateUI(); }
+      if (this.phase as Phase !== 'destroyed') {
+        this.rulesPanel?.setEnabled(true);
+        this.historyPanel?.setEnabled(true);
+        this.phase = 'idle'; this.ui.setBusy(false);
+        this.updateUI();
+      }
     }
   }
-  private beforeSpin() { this.phase = 'requesting'; this.clearEffects(); this.win = 0; this.message.text = 'Waiting for result…'; this.ui.setBusy(true); this.updateUI(); }
+  private beforeSpin() {
+    this.historyPanel?.setEnabled(false);
+    this.rulesPanel?.setEnabled(false);
+    this.phase = 'requesting';
+    this.clearEffects();
+    this.win = 0;
+    this.message.text = 'Waiting for result…';
+    this.ui.setBusy(true); this.updateUI();
+  }
   private async onSpinResponse(result: SpinResult) {
     this.phase = 'spinning'; this.credits = result.credits - result.totalWin; this.updateUI(); this.message.text = 'STOP or Space to skip'; this.ui.setBusy(true, true);
     await Promise.all(this.reels.map((reel, i) => reel.spin(result.grid[i], i)));
@@ -322,6 +352,8 @@ export class Game {
   private changeBet(delta: number) { if (this.phase !== 'idle' || this.pending) return; this.bet = Math.max(rules.minBet, Math.min(rules.maxBet, this.bet + delta)); this.updateUI(); }
   private updateUI() { this.ui.updateCredits(this.credits); this.ui.updateBet(this.bet); this.ui.updateWin(this.win); }
   destroy() {
+    this.historyPanel?.destroy();
+    this.rulesPanel?.destroy();
     this.phase = 'destroyed';
     this.clearEffects();
     this.api.destroy();

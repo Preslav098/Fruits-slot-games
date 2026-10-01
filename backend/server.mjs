@@ -33,6 +33,15 @@ const server = createServer(async (req, res) => {
     req.on('close', () => { clearInterval(heartbeat); clients.get(id)?.delete(res); if (!clients.get(id)?.size) clients.delete(id); });
     return;
   }
+  if (req.method === "GET" &&
+    url.pathname === "/api/history") {
+    const history = [...session.requests.values()]
+      .reverse()
+      .slice(0, 50);
+
+    json(200, { history });
+    return;
+  }
   if (req.method === 'POST' && url.pathname === '/api/spin') {
     // Same-origin requests only; Vite proxy forwards browser Origin.
     if (req.headers.origin && req.headers.origin !== `http://${req.headers.host}` && req.headers.origin !== `https://${req.headers.host}`) { json(403, { message: 'Invalid origin' }); return; }

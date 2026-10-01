@@ -8,3 +8,148 @@ body {
 canvas {
   display: block;
 }
+
+.rules-button {
+  position: fixed;
+  top: calc(8px + env(safe-area-inset-top, 0px));
+  left: calc(8px + env(safe-area-inset-left, 0px));
+  z-index: 10;
+  min-height: 44px;
+  padding: 0 12px;
+  border: 1px solid #c9a020;
+  border-radius: 12px;
+  background: #210d38;
+  color: #fff4b5;
+  font: 600 14px system-ui, sans-serif;
+  cursor: pointer;
+}
+
+.rules-button:disabled {
+  opacity: 0.45;
+  cursor: default;
+}
+
+.rules-dialog {
+  width: min(600px, calc(100vw - 32px));
+  max-height: calc(100dvh - 32px);
+  box-sizing: border-box;
+  padding: 20px;
+  overflow: auto;
+  border: 2px solid #c9a020;
+  border-radius: 18px;
+  background: #180b29;
+  color: #f5edff;
+  font: 15px/1.5 system-ui, sans-serif;
+}
+
+.rules-dialog::backdrop {
+  background: rgb(0 0 0 / 75%);
+}
+
+.rules-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.rules-header h2 {
+  margin: 0;
+  color: #ffdc78;
+  font-size: 22px;
+}
+
+.rules-close {
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  border: 1px solid #c9a020;
+  border-radius: 10px;
+  background: #321343;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.rules-table-wrapper {
+  overflow-x: auto;
+}
+
+.rules-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: center;
+}
+
+.rules-table th,
+.rules-table td {
+  padding: 8px;
+  border-bottom: 1px solid #493052;
+}
+
+.rules-table thead th {
+  color: #ffdc78;
+  font-size: 13px;
+}
+
+.rules-table img {
+  display: block;
+  margin: auto;
+  object-fit: contain;
+}
+
+.rules-dialog ol {
+  padding-left: 24px;
+}
+
+.rules-dialog li {
+  margin-bottom: 8px;
+}
+
+.rules-note {
+  color: #c6b3d8;
+  font-size: 13px;
+}
+
+.rules-button:focus-visible,
+.rules-close:focus-visible {
+  outline: 3px solid #fff4b5;
+  outline-offset: 3px;
+}
+
+@media (max-width: 420px) {
+  .rules-dialog {
+    padding: 14px;
+  }
+
+  .rules-header h2 {
+    font-size: 19px;
+  }
+
+  .rules-table th,
+  .rules-table td {
+    padding: 6px;
+  }
+
+  .rules-button {
+    padding: 0 8px;
+    font-size: 12px;
+  }
+}
+
+.history-button {
+  left: auto;
+  right: calc(8px + env(safe-area-inset-right, 0px));
+}
+
+.history-spin-id {
+  display: block;
+  max-width: 150px;
+  margin-top: 8px;
+  overflow-wrap: anywhere;
+  font-size: 11px;
+}
+
+.rules-table summary {
+  cursor: pointer;
+}
